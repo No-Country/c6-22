@@ -1,0 +1,4 @@
+Los componentes de la aplicacion. 
+
+Por ej. *CARPETA del componente Y DENTRO la vista "ViewProducts" y demás componentes que compongan esa vista.
+
