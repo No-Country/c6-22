@@ -1,3 +1,9 @@
+HELP.md
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
 ### Eclipse ###
 .metadata
 bin/
@@ -10,6 +16,12 @@ local.properties
 .settings/
 .loadpath
 .recommenders
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
 
 # External tool builders
 .externalToolBuilders/
