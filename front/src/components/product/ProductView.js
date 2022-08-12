@@ -7,5 +7,5 @@ export const ProductView = () => {
   //Obtener ID del producto que coincida con el "productId"
   //Si se encuentra, dar los detalles, sino reedirigir a la categoria anterior "replace"
 
-  return <div> id: {productId}</div>;
+  return <div> id: {Number(productId) + 1}</div>;
 };
