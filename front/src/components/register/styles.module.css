@@ -1,0 +1,25 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form input {
+  border: none;
+  border-bottom: 2px solid var(--dark-Input);
+  margin-bottom: 2rem;
+
+  transition: border 0.3s;
+}
+
+.form input:focus {
+  outline: none;
+  border-color: var(--dark-Input-focus);
+}

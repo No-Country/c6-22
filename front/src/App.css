@@ -1,0 +1,9 @@
+.App {
+  /* LOGIN */
+  --dark-shadow: rgba(0, 0, 0, 0.186);
+  --ligth-shadow: white;
+  --background-login: rgb(243, 243, 243);
+  --btn-login: rgb(80, 181, 211);
+  --back-btn: rgba(105, 105, 105, 0.421);
+  --back-btn-hover: rgba(105, 105, 105, 0.69);
+}
