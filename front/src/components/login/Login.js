@@ -42,7 +42,7 @@ export const Login = () => {
   return (
     <div className={container}>
       <form onSubmit={handleSubmit} className={form}>
-        <button onClick={() => navigate(-1)} className={btn_back}>
+        <button type="button" onClick={() => navigate(-1)} className={btn_back}>
           <ArrowBack />
         </button>
         <h2>TecnoStore</h2>
