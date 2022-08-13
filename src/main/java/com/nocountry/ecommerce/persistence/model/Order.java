@@ -5,15 +5,15 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
-@Getter
-@Setter
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
@@ -22,17 +22,18 @@ public class Order {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long order_id;
+    private Long orderId;
     
-    @Column(name = "ammount")
-    private Double ammount;
+    @Column(name = "ammount" , nullable = false)
+    private Float totalAmmount;
 
-    @Column(name = "date")
+    @Column(name = "date" , nullable = false)
     private String date;
 
-    @Column(name = "status")
+    @Column(name = "status" , nullable = false)
     private String status;
 
-    @Column(name = "customer_id")
-    private Long customer_id;
+    @ManyToOne
+    @JoinColumn(name = "customer_id")
+    private Customer customer;
 }

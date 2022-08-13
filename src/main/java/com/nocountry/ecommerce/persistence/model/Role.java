@@ -8,12 +8,10 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
-@Getter
-@Setter
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
@@ -22,12 +20,12 @@ public class Role {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long role_id;
+    private Long roleId;
     
-    @Column(name = "role")
-    private String role;
+    @Column(name = "name", nullable = false, unique = true)
+    private String name;
     
-    @Column(name = "description")
+    @Column(name = "description" , nullable = true)
     private String description;
 
 }

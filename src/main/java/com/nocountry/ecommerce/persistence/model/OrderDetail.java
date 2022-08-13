@@ -2,6 +2,8 @@ package com.nocountry.ecommerce.persistence.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -17,16 +19,18 @@ import lombok.Setter;
 @Table(name = "orders_details")
 public class OrderDetail {
     
-    @Column(name = "order_id")
-    private Long order_id;
+    @ManyToMany
+    @JoinColumn(name = "order_id")
+    private Order order;
 
-    @Column(name = "product_id")
-    private Long product_id;
+    @ManyToMany
+    @JoinColumn(name = "product_id")
+    private Product product;
 
-    @Column(name = "quantity")
+    @Column(name = "quantity" , nullable = false)
     private Integer quantity;
 
-    @Column(name = "price")
+    @Column(name = "price" , nullable = false)
     private Float price;
 
 }

@@ -4,17 +4,15 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Table;
 
-import lombok.Getter;
-import lombok.Setter;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
+import lombok.Data;
 
 import javax.persistence.Id;
 import javax.persistence.GenerationType;
 import javax.persistence.Column;
 
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
@@ -23,17 +21,17 @@ public class Category {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long category_id;
+    private Long categoryId;
     
-    @Column(name = "category_name", nullable = false)
+    @Column(name = "name", nullable = false, unique = true)
     private String name;
 
-    @Column(name = "description", nullable = false)
+    @Column(name = "description", nullable = true)
     private String description;
 
     @Column(name = "image", nullable = false)
     private String image;
 
-    @Column(name = "soft_delete", nullable = false)
-    private boolean soft_delete;
+    @Column(name = "soft_delete", nullable = false, columnDefinition = "boolean default false")
+    private boolean softDelete;
 }
