@@ -1,169 +1,36 @@
 import React from "react";
 import styles from "../home/Home.module.css";
-import chair from "../../assets/chair.png";
-import lupa from "../../assets/lupa.png";
+import data from "../json/data.json"
 import { Link } from "react-router-dom";
 
-export const Home = () => {
+const {cardHome, card, cardImg, cardText} = styles
+
+const Home = () => {
   return (
     <>
-      <nav className="navbar navbar-expand-lg bg-light">
-        <div className="container-fluid">
-          <a className="navbar-brand" href="#">
-            nomos
-          </a>
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarNav"
-            aria-controls="navbarNav"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span className="navbar-toggler-icon"></span>
-          </button>
-          <div className="collapse navbar-collapse" id="navbarNav">
-            <ul className="navbar-nav mx-auto">
-              <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="#">
-                  HOME
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="#">
-                  SHOPS
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="#">
-                  PAGES
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="#">
-                  BLOGS
-                </a>
-              </li>
-            </ul>
+    <div className={cardHome}>
+    {
+       data.map((product) => {
+        return (
+          <div key={product.id}>
+              <div className={card}>
+                <div className={cardImg}>
+                  <img src={product.url} alt="..."/>
+                </div>
+                <div className={cardText}>
+                  <h1>{product.title}</h1>
+                  <p>{product.description}</p>
+                  <Link to={`/${product.title}`}>SEE MORE</Link>
+                </div>
+             </div>
           </div>
-        </div>
-      </nav>
-      <div className={styles.icons}>
-        <ul className="navbar mx-auto">
-          <li className="nav-item">
-            <a className="nav-link" aria-current="page" href="#">
-              <img src={lupa} />
-            </a>
-          </li>
-          <li className="nav-item">
-            <Link to="/login" className="nav-link" href="#">
-              🙎‍♂️
-            </Link>
-          </li>
-          <li className="nav-item">
-            <Link to="/cart" className="nav-link" href="#">
-              🛒
-            </Link>
-          </li>
-        </ul>
-      </div>
+        )
+       }) 
+    }
+  </div>
+ </>
+  )
+}
 
-      {/* <div className={styles.cardContainer}>
-        <div className={styles.card}>
+export default Home
 
-            <div className={styles.cardText}>
-
-              <div className={styles.text}>
-                <h3>Title</h3>
-                <p>text text text text text text text text text text text text text text text text text text</p>
-              </div> 
-
-            </div>
-
-            <div className={styles.cardImage}>
-                <img src={chair} alt=""/>
-                <h3>Title</h3>
-                <p>text text text text text text text text text text text text text text text text text text</p>
-            </div>
-            
-        </div>
-      </div> */}
-      <div className={styles.cardContainer}>
-        <div className={styles.cardText}>
-          <div className={styles.text}>
-            <h1>Laptops</h1>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam.
-            </p>
-            <p>120.00 $</p>
-            <p>
-              <Link to={`/laptops`}>VIEW MORE</Link>
-            </p>
-          </div>
-        </div>
-        <div>
-          <div className={styles.circle}></div>
-          <div className={styles.cardImg}>
-            <img src={chair} width="350" />
-          </div>
-        </div>
-      </div>
-
-      <div
-        className={styles.cardContainer}
-        style={{ backgroundColor: "rgb(224, 190, 215)" }}
-      >
-        <div>
-          <div className={styles.circle}>
-            <div className={styles.circle2}></div>
-          </div>
-
-          <div className={styles.cardImg}>
-            <img src={chair} width="350" />
-          </div>
-        </div>
-
-        <div className={styles.cardText}>
-          <div className={styles.text}>
-            <h1>Smartphones</h1>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam.
-            </p>
-            <p>120.00 $</p>
-            <p>
-              <Link to={`/smartphones`}>VIEW MORE</Link>
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <div className={styles.cardContainer}>
-        <div className={styles.cardText}>
-          <div className={styles.text}>
-            <h1>PCs </h1>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam.
-            </p>
-            <p>120.00 $</p>
-            <p>
-              <Link to={`/pc`}>VIEW MORE</Link>
-            </p>
-          </div>
-        </div>
-        <div>
-          <div className={styles.circle}></div>
-          <div className={styles.cardImg}>
-            <img src={chair} width="350" />
-          </div>
-        </div>
-      </div>
-    </>
-  );
-};
