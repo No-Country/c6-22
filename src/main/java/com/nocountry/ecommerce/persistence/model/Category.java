@@ -9,7 +9,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.GenerationType;
+import java.util.List;
 import javax.persistence.Column;
 
 @Data
@@ -21,17 +23,21 @@ public class Category {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "category_id")
     private Long categoryId;
     
     @Column(name = "name", nullable = false, unique = true)
     private String name;
 
-    @Column(name = "description", nullable = true)
+    @Column(name = "description")
     private String description;
 
     @Column(name = "image", nullable = false)
     private String image;
 
-    @Column(name = "soft_delete", nullable = false, columnDefinition = "boolean default false")
+    @OneToMany(mappedBy = "category")
+    private List<Product> pruducts;
+
+    @Column(name = "soft_delete")
     private boolean softDelete;
 }

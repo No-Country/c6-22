@@ -20,12 +20,13 @@ public class Role {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "role_id")
     private Long roleId;
     
     @Column(name = "name", nullable = false, unique = true)
     private String name;
     
-    @Column(name = "description" , nullable = true)
+    @Column(name = "description")
     private String description;
 
 }
