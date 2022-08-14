@@ -1,4 +1,4 @@
-package com.nocountry.ecommerce.config.auth;
+package com.nocountry.ecommerce.config.auth.common;
 
 public enum Role {
   
