@@ -7,13 +7,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.nocountry.ecommerce.rest.dto.request.UserRegisterRequest;
 import com.nocountry.ecommerce.rest.dto.response.UserRegisterResponse;
-import com.nocountry.ecommerce.service.UserService;
+import com.nocountry.ecommerce.service.IUserService;
 
 @RestController
 public class UserController {
   
   @Autowired
-  UserService userService;
+  IUserService userService;
   
   @PostMapping("/register")
   public ResponseEntity<UserRegisterResponse> create(UserRegisterRequest userRegisterReq) {
