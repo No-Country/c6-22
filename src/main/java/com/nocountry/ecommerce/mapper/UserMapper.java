@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import com.nocountry.ecommerce.persistence.model.User;
 import com.nocountry.ecommerce.rest.dto.request.UserRegisterRequest;
+import com.nocountry.ecommerce.rest.dto.response.UserRegisterResponse;
 
 @Mapper(componentModel = "spring")
 public abstract class UserMapper {
@@ -25,6 +26,9 @@ public abstract class UserMapper {
   protected String encodePassword(String password) {
     return passwordEncoder.encode(password);
   }
+
+  @Mapping(target = "id", source = "userId")
+  public abstract UserRegisterResponse toUserRegisterResponse(User userEntity);
 
 
 }
