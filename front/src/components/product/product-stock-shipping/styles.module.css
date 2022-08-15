@@ -1,0 +1,13 @@
+.svgBox {
+  display: flex;
+  align-items: center;
+  color: var(--green-details);
+}
+.svgBox svg {
+  width: 50px;
+}
+.txt {
+  color: var(--green-details);
+  margin: 0;
+  font-weight: 500;
+}

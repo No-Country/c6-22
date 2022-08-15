@@ -1,4 +1,4 @@
-.App {
+body {
   /* LOGIN */
   --dark-shadow: rgba(0, 0, 0, 0.186);
   --ligth-shadow: white;
@@ -6,4 +6,12 @@
   --btn-login: rgb(80, 181, 211);
   --back-btn: rgba(105, 105, 105, 0.421);
   --back-btn-hover: rgba(105, 105, 105, 0.69);
+
+  /* Details */
+  --green-details: rgb(31, 157, 31);
+}
+
+.shadow_general {
+  box-shadow: inset 5px 5px 5px var(--dark-shadow),
+    inset -5px -5px 5px var(--ligth-shadow);
 }
