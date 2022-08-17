@@ -1,14 +1,12 @@
-h5{
+.productContent h5{
     margin-top: 10px;
     font-weight: 400;
     text-align: center;
 }
-p{
+.productContent p{
     font-weight: 400;  
 }
-span{
-    font-weight: 200;
-}
+
 .productContent button{
     background-color: #134E5E;
     color: white;
