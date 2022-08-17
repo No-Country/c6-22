@@ -1,53 +1,42 @@
 import React, { useEffect } from "react";
 import { useParams, useNavigate, Link, useLocation } from "react-router-dom";
+import Cards from "../cards/Cards";
+import data from "../json/data.json"
+
 
 export const ProductsView = () => {
+  const categorieList = ["smartphones", "laptops", "tablets", "pc"]; 
   const { categorieId } = useParams();
-
-  const products = [
-    `${categorieId} 1`,
-    `${categorieId} 2`,
-    `${categorieId} 3`,
-    `${categorieId} 4`,
-    `${categorieId} 5`,
-    `${categorieId} 6`,
-  ];
-
-  class Product {
-    constructor(name, text, id) {
-      return (this.name = name), (this.text = text), (this.id = id);
-    }
-  }
-
-  const generateProducts = products.map(
-    (produc, id) => new Product(produc, `Detalle del Producto  ${id}`, id)
-  );
-
-  //Lo de arriba no tiene valor, solo es para crear unos productos. SE OBTIENEN DE LA BASE DE DATOS (menos el "useParams")
-
-  let { pathname } = useLocation();
-  const navigate = useNavigate();
-
-  const categorieList = ["smartphones", "laptops", "tablets", "pc"]; //Categorias obtenidas de la base de datos
   const verification = categorieList.includes(categorieId);
-  //verificacion si en la ruta se encuentra la categoria
+  const navigate = useNavigate();
+  let { pathname } = useLocation();
+
+  
 
   useEffect(() => {
-    !verification && navigate("/");
-    //Si en el path no viene una ruta válida se reedirige
+    // !verification && navigate("/");
+
   }, []);
 
   return (
     <div>
-      Products de la categoria {categorieId}
-      {generateProducts.map((el) => (
-        <div key={el.id}>
-          <h2>{el.name}</h2>
-          <p>{el.text}</p>
+      {/* className={styles.cardProducts} */}
+      <div >
+        <h1>productsview</h1>
+  { data.map((products) => {
+    return(
+       <Cards
+          key = {products.id}
+          id = {products.id}
+          title = {products.title}
+          description = {products.description}
+          img = {products.url}
+        />
+    )
+  })}
+  </div> 
+          {/* <Link to={`${pathname}/${el.id}`}>Detalles</Link> */}
 
-          <Link to={`${pathname}/${el.id}`}>Detalles</Link>
-        </div>
-      ))}
     </div>
   );
 };
