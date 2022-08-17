@@ -6,16 +6,22 @@ import {
   Navigate,
   useParams,
 } from "react-router-dom";
+
 import { Cart } from "../components/cart/Cart";
-import { Home } from "../components/home/Home";
+
+
+import  Home  from "../components/home/Home";
+
 import { Login } from "../components/login/Login";
+import Navbar from "../components/navbar/Navbar";
 import { ProductView } from "../components/product/ProductView";
-import { ProductsView } from "../components/products/ProductsView";
+import  {ProductsView}  from "../components/products/ProductsView";
 import { Register } from "../components/register/Register";
 
 export const AppRouter = () => {
   return (
     <BrowserRouter>
+    <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/:categorieId" element={<ProductsView />} />

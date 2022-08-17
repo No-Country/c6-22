@@ -6,11 +6,21 @@ body{
 html{
     scroll-behavior: smooth;
 }
-h1{
-    font-weight: 300;
+.cardText h1{
+    font-size: 1.8em;
+    font-weight: 600;
 }
-p{
-    font-weight: 200;
+
+.cardProducts{
+    display: flex;
+    justify-content: space-evenly;
+    height: 350px;
+    flex-wrap: wrap;
+
+}
+
+.cardHome{
+    margin-top: 20px;
 }
 
 /* ////////////Navbar////////////// */
@@ -27,62 +37,90 @@ p{
     list-style: none;
 }
 
-
 /* ///////////////CARDS//////////////// */
-span{
-    width: 20px;
-    text-decoration: underline;
 
-}
-.cardContainer{
+.card{
+    width: 100%;
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
-    background-color: rgb(189, 189, 189);
-    width: 90%;
-    margin: auto;
-    margin-top: 20px;
 }
+
+.cardImg img{
+    max-width: 260px;
+    animation: move 2.5s linear infinite; 
+    filter: drop-shadow( -35px 30px 40px black);
+}
+
+.cardContainer{
+    display: flex;
+    justify-content: space-around;
+    background-color: rgb(189, 189, 189);
+    margin: auto;
+    margin: 20px 10px 20px 10px;
+    min-height: 320px;
+    background: #134E5E;
+    background: -webkit-linear-gradient(to right, #71B280, #134E5E); 
+    background: linear-gradient(to right, #71B280, #134E5E);
+    border-radius: 20px;
+
+}
+
 .cardText{
+    width: 320px;
+    margin: 10px;
+    margin-top: 10px;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;  
 }
 .text{
-    max-width: 450px;
+    width: 100%;    
     background-color: white;
-    margin: 20px;
-    padding: 30px;
+    margin: 10px;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    transform: translateY(-1px);
+    box-shadow: 10px 10px 19px -8px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 10px 10px 19px -8px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 10px 19px -8px rgba(0,0,0,0.75);
+
 }
 .cardImg{
     display: flex;
     justify-content: center;
     flex-direction: column;
-    position: relative;
-    top: -20%;
 
 }
-
-.circle{
-    border-radius: 100px;
-    height: 200px;
-    width: 200px;
-    background-color: white;
-    position: relative;
-    margin: auto;
-    top: 30%;
+.text a button:hover{
+    animation: shake 0.4s;
 }
-.circle2{
-    border-radius: 100px;
-    height: 120px;
-    width: 120px;
-    background-color: rgb(145, 108, 142);
-    position: absolute;
-    top: -50%;
-    left: 50%;
+.text button{
+    width: 60%;  
+    border: 2px solid #134E5E;
+    
+}
+.text button a:hover{
+    background-color: #134E5E;
+    color: white;
+    
 }
 
 
+/* ////////////////SECTION CATEGORY/////////// */
+@keyframes move{
+    0%{
+        transform: translateY(0);
+    }
+    50%{
+        transform: translateY(15px);
+    }
+    100%{
+        transform: translateY(0);
+    }
+}
 
 @media screen and (max-width: 990px) {
     .icons{
@@ -97,6 +135,20 @@ span{
     }
 }
 
-
+/* ////////////////CATEGORY BUTTON/////////////// */
+@keyframes shake{
+    0%{
+        transform: translateX(0);
+    }
+    25%{
+        transform: translateX(-6px);
+    }
+    50%{
+        transform: translateX(0);
+    }
+    75%{
+        transform: translateX(8px);
+    }
+}
 
 
