@@ -6,6 +6,7 @@ body{
 html{
     scroll-behavior: smooth;
 }
+
 .cardText h1{
     font-size: 1.8em;
     font-weight: 600;
@@ -16,13 +17,29 @@ html{
     justify-content: space-evenly;
     height: 350px;
     flex-wrap: wrap;
-
 }
 
 .cardHome{
     margin-top: 20px;
 }
 
+.navbarBrand{
+    color: black;
+    text-decoration: none;
+    font-size: 1.3rem;
+}
+.navbarPage{
+    color: black;
+    text-decoration: none;
+    line-height: 40px;
+    padding-right:1rem;
+}
+.navbarPage:hover{
+    color: black;
+}
+.navbarBrand:hover{
+    color: black;
+}
 /* ////////////Navbar////////////// */
 .icons{
     width: 100%;
@@ -51,6 +68,15 @@ html{
     animation: move 2.5s linear infinite; 
     filter: drop-shadow( -35px 30px 40px black);
 }
+
+
+
+.cardImg img{
+    max-width: 260px;
+    animation: move 2.5s linear infinite; 
+    filter: drop-shadow( -35px 30px 40px black);
+}
+
 
 .cardContainer{
     display: flex;
