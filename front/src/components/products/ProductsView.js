@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useParams, useNavigate, Link, useLocation } from "react-router-dom";
 import Cards from "../cards/Cards";
 import data from "../json/data.json"
+
 import styles from "../cards/Cards.module.css"
 
 const {cardProducts} = styles
@@ -20,11 +21,11 @@ export const ProductsView = () => {
   }, []);
 
   return (
+
     <>
-      <h1>productsview</h1>
-    
-      
+      <h1>productsview</h1>   
       <div className={styles.cardsProducts}>   
+        <h1>productsview</h1>
   { data.map((products) => {
     return(
        <Cards
@@ -37,9 +38,7 @@ export const ProductsView = () => {
     )
   })}
   </div> 
-          {/* <Link to={`${pathname}/${el.id}`}>Detalles</Link> */}
-
-  
+          {/* <Link to={`${pathname}/${el.id}`}>Detalles</Link> */} 
     </>
   );
 };

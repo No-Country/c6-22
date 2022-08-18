@@ -25,7 +25,11 @@ const Cards = (props) => {
             <br></br>
             <h5>$ 1999.99</h5>
             <br></br>
-            <Link to={`${props.id}`}><button>SEE MORE</button> </Link>
+
+            <Link to={`${props.id}`}><button>SEE MORE</button></Link>
+
+       
+
             </div>
         </div>
     </div> 
