@@ -23,9 +23,9 @@ export const ProductsView = () => {
   return (
 
     <>
-      <h1>productsview</h1>   
+   
       <div className={styles.cardsProducts}>   
-        <h1>productsview</h1>
+       
   { data.map((products) => {
     return(
        <Cards
