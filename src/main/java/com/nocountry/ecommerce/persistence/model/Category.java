@@ -39,5 +39,5 @@ public class Category {
     private List<Product> pruducts;
 
     @Column(name = "soft_delete")
-    private boolean softDelete;
+    private Boolean softDelete;
 }
