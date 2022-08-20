@@ -5,6 +5,7 @@ export const isValidate = (email, password, setError) => {
     setError("Ingrese un Email válido");
     return false;
   } else if (
+    //mayus, minuscula, numero, minimo 6
     !validator.isStrongPassword(password, { minLength: 6, minSymbols: 0 })
   ) {
     setError("Password inválido");
