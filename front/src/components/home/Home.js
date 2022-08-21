@@ -12,7 +12,6 @@ const Home = () => {
       <div className={cardHome}>
         {data.map((product) => {
           const path = product.title.toLowerCase();
-          console.log(path);
           return (
             <div key={product.id} className={cardContainer}>
               <div className={card}>

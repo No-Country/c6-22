@@ -19,8 +19,7 @@ export const resize = (changueView, width = window.innerWidth) => {
 };
 
 export const fething = (handleLoading, handleProducts, index = "") => {
-  baseURL
-    .get(index)
+  baseURL("/Product")
     .then(({ data }) => {
       handleProducts(data);
       handleLoading(false);
