@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getService } from "../services/getServive";
+import { getService } from "../services/getService";
 
 export const useFetch = (url = "") => {
   const [results, setResult] = useState([]);
@@ -9,10 +9,11 @@ export const useFetch = (url = "") => {
   useEffect(() => {
     getService(url)
       .then((data) => {
+        console.log(data);
         setResult(data);
         setLoading(false);
       })
-      .then((e) => setError(e));
+      .catch((e) => setError(e));
   }, [url]);
 
   return { results, loading, error };
