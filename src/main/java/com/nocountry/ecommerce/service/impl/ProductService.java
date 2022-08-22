@@ -2,6 +2,7 @@ package com.nocountry.ecommerce.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import com.nocountry.ecommerce.exception.NotFoundException;
 import com.nocountry.ecommerce.mapper.ProductMapper;
 import com.nocountry.ecommerce.persistence.model.Product;
 import com.nocountry.ecommerce.persistence.repository.ProductRepository;
@@ -20,6 +21,9 @@ public class ProductService implements IProductService {
   @Override
   public ProductResponse getBy(Long id) {
     Product productEntity = productRepository.findByProductIdAndSoftDeleteFalse(id);
+    if (productEntity == null) {
+      throw new NotFoundException("Product not found.");
+    }
     return productMapper.toResponse(productEntity);
   }
 
