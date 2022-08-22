@@ -23,6 +23,8 @@ public class SecurityConfig {
     .and()
     .authorizeRequests()
     .antMatchers(HttpMethod.POST, "/register")
+    .permitAll()
+    .antMatchers(HttpMethod.GET, "/catalog/{id:[\\d+]}")
     .permitAll();
     return http.build();
   }
