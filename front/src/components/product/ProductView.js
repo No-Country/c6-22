@@ -1,15 +1,15 @@
-import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Carousel } from "./carousel/Carousel";
-import { ProductStockShipping } from "./product-stock-shipping/ProductStockShipping";
+
 import { ButtonsAction } from "./buttons/ButtonsAction";
-import { fething } from "./helpers";
 
 import visa from "../../assets/visa.png";
 import mastrecard from "../../assets/mastercard.png";
 
-import style from "./style.module.css";
+import { useFetch } from "../../hooks/useFetch";
+import { ProductStockShipping } from "./product-stock-shipping/ProductStockShipping";
 
+import style from "./style.module.css";
 const {
   container,
   content,
@@ -26,19 +26,11 @@ const {
 
 export const ProductView = () => {
   const { productId } = useParams();
-  const [products, setProducts] = useState("");
-  const [loading, setLoading] = useState(true);
+  const { error, loading, results } = useFetch("/Product");
 
   const { name, details, img, img2, img3, price } = !loading
-    ? products[productId]
+    ? results[productId]
     : {};
-
-  const handleLoading = (status) => setLoading(status);
-  const handleProducts = (data) => setProducts(data);
-
-  useEffect(() => {
-    fething(handleLoading, handleProducts);
-  }, [productId]);
 
   return (
     <div className={container}>
@@ -65,7 +57,6 @@ export const ProductView = () => {
                 <img src={mastrecard} alt="mastercard" />
                 <img src={visa} alt="visa" />
               </div>
-
               <ProductStockShipping />
               <ButtonsAction />
             </div>
