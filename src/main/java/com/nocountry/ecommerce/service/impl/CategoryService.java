@@ -1,10 +1,7 @@
 package com.nocountry.ecommerce.service.impl;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.nocountry.ecommerce.mapper.CategoryMapper;
 import com.nocountry.ecommerce.persistence.repository.CategoryRepository;
 import com.nocountry.ecommerce.rest.dto.response.ListCategoryResponse;
@@ -21,6 +18,9 @@ public class CategoryService implements ICategoryService {
 
     @Override
     public ListCategoryResponse findAll() {
-        return categoryMapper.toListCategoryResponse(categoryRepository.findBySoftDeleteFalse());
+      ListCategoryResponse response = ListCategoryResponse.builder().build();
+      response.setCategories(
+          categoryMapper.toListCategoryResponse(categoryRepository.findBySoftDeleteFalse()));
+      return response;
     }
 }
