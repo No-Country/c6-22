@@ -5,7 +5,7 @@ INSERT INTO `users`(`user_id`, `password`, `soft_delete`, `username`, `role_id`)
 (1, '$2a$10$PLIZoVkrPM6AdhpJimMk1ufvokEXvyAlzEoXPrCyyn.LG.bAGN4.C', false, 'admin@test.com', 1);
 
 INSERT INTO `categories`(`category_id`, `description`, `image`, `name`, `soft_delete`) VALUES 
-(1, 'Description of laptops', 'https://', 'Laptops', false),
-(2, 'Description of smartphones', 'https://', 'Smartphones', false),
-(3, 'Description of tablets', 'https://', 'Tablets', false),
-(4, 'Description of pc', 'https://', 'PC', false);
+(1, 'Description of laptops', 'https://nocountry-c6-22.s3.amazonaws.com/laptop.webp', 'Laptops', false),
+(2, 'Description of smartphones', 'https://nocountry-c6-22.s3.amazonaws.com/smartphone.webp', 'Smartphones', false),
+(3, 'Description of tablets', 'https://nocountry-c6-22.s3.amazonaws.com/tablet.webp', 'Tablets', false),
+(4, 'Description of pc', 'https://nocountry-c6-22.s3.amazonaws.com/desktop.webp', 'PC', false);
