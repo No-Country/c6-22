@@ -5,10 +5,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.nocountry.ecommerce.exception.CategoryNotFoundExeption;
-import com.nocountry.ecommerce.mapper.impl.CategoryMapper;
+import com.nocountry.ecommerce.mapper.CategoryMapper;
 import com.nocountry.ecommerce.persistence.repository.CategoryRepository;
-import com.nocountry.ecommerce.rest.dto.response.CategoryResponse;
+import com.nocountry.ecommerce.rest.dto.response.ListCategoryResponse;
 import com.nocountry.ecommerce.service.ICategoryService;
 
 @Service
@@ -21,7 +20,7 @@ public class CategoryService implements ICategoryService {
     CategoryMapper categoryMapper;
 
     @Override
-    public List<CategoryResponse> findAll() {
-        return categoryMapper.toActiveCategoryResponse(categoryRepository.findAll());
+    public ListCategoryResponse findAll() {
+        return categoryMapper.toListCategoryResponse(categoryRepository.findBySoftDeleteFalse());
     }
 }

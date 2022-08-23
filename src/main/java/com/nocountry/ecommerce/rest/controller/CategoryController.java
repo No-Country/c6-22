@@ -2,10 +2,11 @@ package com.nocountry.ecommerce.rest.controller;
 
 import org.springframework.web.bind.annotation.RestController;
 import com.nocountry.ecommerce.rest.dto.response.CategoryResponse;
+import com.nocountry.ecommerce.rest.dto.response.ListCategoryResponse;
 import com.nocountry.ecommerce.service.impl.CategoryService;
 
-import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @RestController
@@ -15,8 +16,8 @@ public class CategoryController {
 	CategoryService categoryService;
 
 	@GetMapping("/categories")
-	public List<CategoryResponse> findAll() {
-		return categoryService.findAll();
+	public ResponseEntity<ListCategoryResponse> findAll() {
+		return ResponseEntity.ok(categoryService.findAll());
 	}
 
 }

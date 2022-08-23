@@ -1,10 +1,8 @@
 package com.nocountry.ecommerce.service;
 
-import java.util.List;
-
-import com.nocountry.ecommerce.rest.dto.response.CategoryResponse;
+import com.nocountry.ecommerce.rest.dto.response.ListCategoryResponse;
 
 public interface ICategoryService {
     
-    List<CategoryResponse> findAll();
+    ListCategoryResponse findAll();
 }
