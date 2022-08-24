@@ -10,7 +10,5 @@ import com.nocountry.ecommerce.persistence.model.Category;
 @Repository
 public interface CategoryRepository extends JpaRepository<Category, Long> {
     
-    List<Category> findBySoftDelete(Boolean softDelete);
-
     List<Category> findBySoftDeleteFalse();
 }
