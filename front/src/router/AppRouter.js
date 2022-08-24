@@ -16,7 +16,7 @@ import { Login } from "../components/login/Login";
 import Navbar from "../components/navbar/Navbar";
 import { ProductView } from "../components/product/ProductView";
 import  {ProductsView}  from "../components/products/ProductsView";
-import { Register } from "../components/register/Register";
+import RegisterUser from "../components/register/RegisterUser";
 
 export const AppRouter = () => {
   return (
@@ -27,7 +27,7 @@ export const AppRouter = () => {
         <Route path="/:categorieId" element={<ProductsView />} />
         <Route path="/:categorieId/:productId" element={<ProductView />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
+        <Route path="/register" element={<RegisterUser />} />
         <Route path="/cart" element={<Cart />} />
       </Routes>
     </BrowserRouter>
