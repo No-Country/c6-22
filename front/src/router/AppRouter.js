@@ -1,34 +1,58 @@
-import ReactDOM from "react-dom/client";
-import {
-  BrowserRouter,
-  Routes,
-  Route,
-  Navigate,
-  useParams,
-} from "react-router-dom";
-
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Cart } from "../components/cart/Cart";
-
-
-import  Home  from "../components/home/Home";
-
+import Home from "../components/home/Home";
 import { Login } from "../components/login/Login";
 import Navbar from "../components/navbar/Navbar";
 import { ProductView } from "../components/product/ProductView";
-import  {ProductsView}  from "../components/products/ProductsView";
-import RegisterUser from "../components/register/RegisterUser";
+import { ProductsView } from "../components/products/ProductsView";
+import { Register } from "../components/register/Register";
+import { loginAction } from "../features/authSlice";
+import { ProtectedRoute } from "./ProtectedRoute";
 
 export const AppRouter = () => {
+  const dispatch = useDispatch();
+  const user = useSelector((state) => state.auth);
+
+  let isLogged = user ? true : false;
+
+  useEffect(() => {
+    const userStore = JSON.parse(localStorage.getItem("userTectStore"));
+    if (userStore && user === null) {
+      const { token } = userStore;
+      //PETICION A BASE DE DATOS PARA VERIFICAR TOKEN VALIDO
+      //LUEGO DISPATCH DEL LoginAction
+
+      dispatch(loginAction({ email: "ale@ale.com", password: "123aleA" }));
+    }
+  }, []);
+
   return (
     <BrowserRouter>
-    <Navbar />
+      <Navbar isLogged={isLogged} />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/:categorieId" element={<ProductsView />} />
         <Route path="/:categorieId/:productId" element={<ProductView />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<RegisterUser />} />
-        <Route path="/cart" element={<Cart />} />
+
+        <Route
+          path="/login"
+          element={
+            /* isLogged ? <Navigate to={"/"} replace={true} /> : */ <Login />
+          }
+        />
+
+        <Route path="/register" element={<Register />} />
+
+        <Route
+          path="/cart"
+          element={
+            <ProtectedRoute isLogged={isLogged} nav={"/login"}>
+              <Cart />
+            </ProtectedRoute>
+          }
+        />
       </Routes>
     </BrowserRouter>
   );

@@ -1,14 +1,16 @@
-import { useState } from "react";
-import { useForm } from "../../hooks/useForm";
-import { Link, useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { loginAction } from "../../features/authSlice";
 
-import styles from "./styles.module.css";
+import { useForm } from "../../hooks/useForm";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 import { ReactComponent as LockIcon } from "../../assets/lock.svg";
 import { ReactComponent as UserIcon } from "../../assets/user.svg";
 import { ReactComponent as ArrowBack } from "../../assets/arrow-left.svg";
 
 import { isValidate } from "./validate";
+import styles from "./styles.module.css";
 
 const {
   container,
@@ -21,12 +23,19 @@ const {
 } = styles;
 
 export const Login = () => {
-  const [error, setError] = useState(null);
+  const state = useSelector((state) => state.auth);
+
+  const location = useLocation();
+
+  /*    const pathname = location.state.pathname; */
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const [error, setError] = useState(null);
 
   const { inputValue, handleChange, inputReset } = useForm({
-    email: "",
-    password: "",
+    email: "ale@ale.com",
+    password: "123aleA",
   });
 
   const { email, password } = inputValue;
@@ -34,10 +43,19 @@ export const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    //Hablar al server
     const IsError = isValidate(email, password, setError);
-    console.log(IsError);
+    if (IsError) {
+      dispatch(loginAction(email, password));
+      //enviamos los datos para veificar el usuario en base de datos
+    }
   };
+
+  useEffect(() => {
+    if (state) {
+      const from = location?.state || "/";
+      return navigate(from, { replace: true });
+    }
+  }, [state]);
 
   return (
     <div className={container}>
