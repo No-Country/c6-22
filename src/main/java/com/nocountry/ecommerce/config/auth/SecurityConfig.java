@@ -23,7 +23,13 @@ public class SecurityConfig {
     .and()
     .authorizeRequests()
     .antMatchers(HttpMethod.POST, "/register")
+    .permitAll()
+    // For development environment only
+    .antMatchers("/h2-console/*")
     .permitAll();
+    
+    // For development environment only
+    http.headers().frameOptions().disable();
     return http.build();
   }
 
