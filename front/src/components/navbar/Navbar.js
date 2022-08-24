@@ -1,16 +1,21 @@
 import React from "react";
 import styles from "../home/Home.module.css";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { logout } from "../../features/authSlice";
 
 const { navbarBrand, navbarPage } = styles;
 
-const Navbar = () => {
+const Navbar = ({ isLogged }) => {
+  const dispatch = useDispatch();
+  const location = useLocation();
+
   return (
     <>
       <nav className="navbar navbar-expand-lg bg-light">
         <div className="container-fluid">
           <Link to={"/"} className={navbarBrand}>
-            nomos
+            TecnoStore
           </Link>
           <button
             className="navbar-toggler"
@@ -37,60 +42,34 @@ const Navbar = () => {
               </li>
               <li className="nav-item">
                 <Link to={"/"} className={navbarPage}>
-                  HOME
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link to={"/"} className={navbarPage}>
                   BLOGS
                 </Link>
               </li>
+              {isLogged && (
+                <li className="nav-item">
+                  <button
+                    onClick={() => {
+                      dispatch(logout());
+                    }}
+                    className="btn btn-outline-danger"
+                  >
+                    Cerrar sesion
+                  </button>
+                </li>
+              )}
             </ul>
-            <a className="navbar-brand" href="#">
-              nomos
-            </a>
-            <button
-              className="navbar-toggler"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#navbarNav"
-              aria-controls="navbarNav"
-              aria-expanded="false"
-              aria-label="Toggle navigation"
-            >
-              <span className="navbar-toggler-icon"></span>
-            </button>
-            <div className="collapse navbar-collapse" id="navbarNav">
-              <ul className="navbar-nav mx-auto">
-                <li className="nav-item">
-                  <a className="nav-link active" aria-current="page" href="#">
-                    HOME
-                  </a>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link" href="#">
-                    SHOPS
-                  </a>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link" href="#">
-                    PAGES
-                  </a>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link" href="#">
-                    BLOGS
-                  </a>
-                </li>
-              </ul>
-            </div>
           </div>
         </div>
       </nav>
       <div className={styles.icons}>
         <ul className="navbar mx-auto">
           <li className="nav-item">
-            <Link to="/login" className="nav-link">
+            <Link
+              state={location.pathname}
+              replace={true}
+              to={isLogged ? "/user" : "/login"}
+              className="nav-link"
+            >
               <svg width="30" height="30" fill="none" viewBox="0 0 24 24">
                 <circle
                   cx="12"
