@@ -1,0 +1,46 @@
+.checkout {
+  padding: 0 2%;
+  color: rgb(26, 26, 26);
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  overflow-y: hidden;
+  width: 40%;
+  transition: clip-path 0.6s;
+
+  clip-path: polygon(0 0, 100% 0, 100% 45px, 0 45px);
+}
+
+.visible {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
+.checkout input[type="number"]::-webkit-inner-spin-button,
+.checkout input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+
+.checkout input[type="number"] {
+  width: 85%;
+}
+
+.checkout__form_error {
+  height: 20px;
+  font-size: 14px;
+  color: brown;
+}
+
+.checkout select {
+  cursor: pointer;
+}
+
+.input_code {
+  width: 65px;
+}
+
+@media screen and (max-width: 768px) {
+  .checkout {
+    width: 90%;
+    max-width: 450px;
+  }
+}

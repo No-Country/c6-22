@@ -1,7 +1,8 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Cart } from "../components/cart/Cart";
+
+import { CartView } from "../components/cart/CartView";
 import Home from "../components/home/Home";
 import { Login } from "../components/login/Login";
 import Navbar from "../components/navbar/Navbar";
@@ -49,7 +50,7 @@ export const AppRouter = () => {
           path="/cart"
           element={
             <ProtectedRoute isLogged={isLogged} nav={"/login"}>
-              <Cart />
+              <CartView />
             </ProtectedRoute>
           }
         />
