@@ -25,7 +25,13 @@ public class SecurityConfig {
     .antMatchers(HttpMethod.POST, "/register")
     .permitAll()
     .antMatchers(HttpMethod.GET, "/catalog/{id:[\\d+]}")
+    .permitAll()
+    // For development environment only
+    .antMatchers("/h2-console/*")
     .permitAll();
+    
+    // For development environment only
+    http.headers().frameOptions().disable();
     return http.build();
   }
 
