@@ -1,13 +1,13 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { Cart } from "../components/cart/Cart";
 import Home from "../components/home/Home";
 import { Login } from "../components/login/Login";
 import Navbar from "../components/navbar/Navbar";
 import { ProductView } from "../components/product/ProductView";
 import { ProductsView } from "../components/products/ProductsView";
-import { Register } from "../components/register/Register";
+import RegisterUser from "../components/register/RegisterUser";
 import { loginAction } from "../features/authSlice";
 import { ProtectedRoute } from "./ProtectedRoute";
 
@@ -43,7 +43,7 @@ export const AppRouter = () => {
           }
         />
 
-        <Route path="/register" element={<Register />} />
+        <Route path="/register"  element={isLogged ? <Navigate to={"/"} replace={true} /> : <RegisterUser />} />
 
         <Route
           path="/cart"
