@@ -9,6 +9,7 @@ import { ProductView } from "../components/product/ProductView";
 import { ProductsView } from "../components/products/ProductsView";
 import RegisterUser from "../components/register/RegisterUser";
 import { loginAction } from "../features/authSlice";
+import { getProducts } from "../features/cartSlice";
 import { ProtectedRoute } from "./ProtectedRoute";
 
 export const AppRouter = () => {
@@ -25,6 +26,7 @@ export const AppRouter = () => {
       //LUEGO DISPATCH DEL LoginAction
 
       dispatch(loginAction({ email: "ale@ale.com", password: "123aleA" }));
+      dispatch(getProducts());
     }
   }, []);
 
