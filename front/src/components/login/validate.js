@@ -4,14 +4,13 @@ export const isValidate = (email, password, setError) => {
   if (!validator.isEmail(email)) {
     setError("Ingrese un Email válido");
     return false;
-  } else if (
-    //mayus, minuscula, numero, minimo 6
-    !validator.isStrongPassword(password, { minLength: 6, minSymbols: 0 })
-  ) {
-    setError("Password inválido");
-    return false;
-  } else {
-    setError(null);
   }
+  if (!password.trim().length < 8) {
+    setError("Máximo 8 caracteres");
+    return false;
+  }
+
+  setError(null);
+
   return true;
 };
