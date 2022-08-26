@@ -5,7 +5,7 @@ export const isValidate = (email, password, setError) => {
     setError("Ingrese un Email válido");
     return false;
   }
-  if (!password.trim().length < 8) {
+  if (password.trim().length > 8) {
     setError("Máximo 8 caracteres");
     return false;
   }

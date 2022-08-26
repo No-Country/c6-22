@@ -9,6 +9,8 @@ body {
 
   /* Details */
   --green-details: rgb(31, 157, 31);
+
+  min-width: 300px;
 }
 
 .shadow_general {

@@ -1,19 +1,29 @@
 import { useRef, useState } from "react";
+import swal from "sweetalert";
 import validator from "validator";
 import { useForm } from "../../../hooks/useForm";
 import { SelectElement } from "./SelectElement";
+import shippingIMG from "../../../assets/shipping.png";
 
 import style from "./style.module.css";
-const { checkout, checkout__form_error, visible, input_code } = style;
+const {
+  checkout,
+  checkout__form_error,
+  visible,
+  input_code,
+  shipping_contain,
+} = style;
 
 export const Checkout = () => {
+  const [shipping, setShipping] = useState(false);
   const ref = useRef();
   const refButton = useRef();
+  const checkout_btn_ref = useRef();
 
   const [error, setError] = useState({});
   const { handleChange, inputReset, inputValue } = useForm({
     name: "",
-    credit_number: "",
+    credit_number: "2222420000001113",
     expiration_years: "",
     expiration_month: "",
     security_code: "",
@@ -57,7 +67,17 @@ export const Checkout = () => {
     e.preventDefault();
     if (checkValues()) {
       //conectar al server/redux
-      console.log("validos");
+      checkout_btn_ref.current.disabled = true;
+
+      setTimeout(() => {
+        swal({
+          text: "Compra realizada con éxito",
+          icon: "success",
+          title: "Éxito",
+        });
+        checkout_btn_ref.current.disabled = false;
+        setShipping(true);
+      }, 2000);
     }
   }
 
@@ -84,62 +104,87 @@ export const Checkout = () => {
       >
         Completar compra
       </button>
-      <h3>PAGAR</h3>
-      <div>
-        <label htmlFor="name">Nombre del Titular</label>
-        <input
-          type="text"
-          onChange={handleChange}
-          id="name"
-          name="name"
-          value={name}
-          className="form-control"
-        />
-        <div className={checkout__form_error}>{error.name}</div>
-      </div>
-      <div>
-        <label htmlFor="credit_number">Número de tarjeta</label>
-        <input
-          type="text"
-          onChange={handleChange}
-          id="credit_number"
-          className="form-control"
-          name="credit_number"
-          maxLength={19}
-          value={credit_number}
-        />
-        <div className={checkout__form_error}>{error.credit_number}</div>
-      </div>
+      {shipping ? (
+        <>
+          <h3>PAGAR</h3>
+          <div>
+            <label htmlFor="name">Nombre del Titular</label>
+            <input
+              type="text"
+              onChange={handleChange}
+              id="name"
+              name="name"
+              value={name}
+              className="form-control"
+            />
+            <div className={checkout__form_error}>{error.name}</div>
+          </div>
+          <div>
+            <label htmlFor="credit_number">Número de tarjeta</label>
+            <input
+              type="text"
+              onChange={handleChange}
+              id="credit_number"
+              className="form-control"
+              name="credit_number"
+              maxLength={19}
+              value={credit_number // Eliminamos espacios en blanco
+                .replace(/\s/g, "")
+                // Eliminar las letras
+                .replace(/\D/g, "")
+                // Ponemos espacio cada cuatro numeros
+                .replace(/([0-9]{4})/g, "$1 ")
+                // Elimina el ultimo espaciado
+                .trim()}
+            />
+            <div className={checkout__form_error}>{error.credit_number}</div>
+          </div>
 
-      <div className=" d-flex justify-content-center pointer mb-3 flex-wrap align-items-end">
-        <div className="me-1">
-          <label htmlFor="expiration_month">Mes</label>
-          <SelectElement handleChange={handleChange} />
-          <div className={checkout__form_error}>{error.expiration_month}</div>
-        </div>
-        <div className="me-1">
-          <label htmlFor="expiration_years">Año</label>
-          <SelectElement handleChange={handleChange} yearsInit={22} />
-          <div className={checkout__form_error}>{error.expiration_years}</div>
-        </div>
-        <div className="me-1">
-          <label htmlFor="security_code">Cód. Seg.</label>
-          <input
-            type="text"
-            onChange={handleChange}
-            id="security_code"
-            name="security_code"
-            value={security_code}
-            maxLength="3"
-            className={`form-control ${input_code}`}
-          />
-          <div className={checkout__form_error}>{error.security_code}</div>
-        </div>
-      </div>
+          <div className=" d-flex justify-content-center pointer mb-3 flex-wrap align-items-end">
+            <div className="me-1">
+              <label htmlFor="expiration_month">Mes</label>
+              <SelectElement handleChange={handleChange} />
+              <div className={checkout__form_error}>
+                {error.expiration_month}
+              </div>
+            </div>
+            <div className="me-1">
+              <label htmlFor="expiration_years">Año</label>
+              <SelectElement handleChange={handleChange} yearsInit={22} />
+              <div className={checkout__form_error}>
+                {error.expiration_years}
+              </div>
+            </div>
+            <div className="me-1">
+              <label htmlFor="security_code">Cód. Seg.</label>
+              <input
+                type="text"
+                onChange={handleChange}
+                id="security_code"
+                name="security_code"
+                value={security_code}
+                maxLength="3"
+                className={`form-control ${input_code}`}
+              />
+              <div className={checkout__form_error}>{error.security_code}</div>
+            </div>
+          </div>
 
-      <button type="submit" className="btn btn-primary">
-        Finalizar compra
-      </button>
+          <button
+            ref={checkout_btn_ref}
+            type="submit"
+            className="btn btn-primary"
+          >
+            Finalizar compra
+          </button>
+        </>
+      ) : (
+        <div className={shipping_contain}>
+          <h3>Envío en camino! </h3>
+
+          <img src={shippingIMG} alt="shipping-img" />
+        </div>
+      )}
     </form>
   );
 };

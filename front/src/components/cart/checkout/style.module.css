@@ -38,6 +38,19 @@
   width: 65px;
 }
 
+.shipping_contain {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: rgb(28, 182, 28);
+  font-weight: bolder;
+}
+
+.shipping_contain img {
+  width: 200px;
+}
+
 @media screen and (max-width: 768px) {
   .checkout {
     width: 90%;
