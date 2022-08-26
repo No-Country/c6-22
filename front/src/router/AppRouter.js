@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { Cart } from "../components/cart/Cart";
+import Footer from "../components/footer/Footer";
 import Home from "../components/home/Home";
 import { Login } from "../components/login/Login";
 import Navbar from "../components/navbar/Navbar";
@@ -52,8 +53,10 @@ export const AppRouter = () => {
               <Cart />
             </ProtectedRoute>
           }
+          
         />
       </Routes>
+      <Footer />
     </BrowserRouter>
   );
 };
