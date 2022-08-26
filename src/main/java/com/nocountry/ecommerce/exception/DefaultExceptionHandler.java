@@ -11,13 +11,23 @@ import com.nocountry.ecommerce.rest.dto.response.ErrorResponse;
 public class DefaultExceptionHandler {
   
   private static final String SOMETHING_WENT_WRONG = "Something went wrong.";
-  
+  private static final String RECORD_NOT_FOUND = "Record not found in database.";
+
   @ExceptionHandler(value = Exception.class)
   public ResponseEntity<ErrorResponse> handleException(Exception e) {
     ErrorResponse errorResponse = buildError(HttpStatus.BAD_REQUEST,
         SOMETHING_WENT_WRONG,
         e.getMessage());
     return new ResponseEntity<>(errorResponse, HttpStatus.BAD_REQUEST);
+  }
+
+  @ExceptionHandler(value = NotFoundException.class)
+  public ResponseEntity<ErrorResponse> handleNotFoundException(
+      NotFoundException e) {
+    ErrorResponse errorResponse = buildError(HttpStatus.NOT_FOUND,
+        RECORD_NOT_FOUND,
+        e.getMessage());
+    return new ResponseEntity<>(errorResponse, HttpStatus.NOT_FOUND);
   }
   
   private ErrorResponse buildError(HttpStatus httpStatus, String message, List<String> moreInfo) {
