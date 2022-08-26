@@ -28,6 +28,7 @@ export const ProductsView = () => {
               title={products.title}
               description={products.description}
               img={products.url}
+              price={products.price}
             />
           );
         })}
