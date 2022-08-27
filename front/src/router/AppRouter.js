@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import { Cart } from "../components/cart/Cart";
+import { CartView } from "../components/cart/CartView";
 import Home from "../components/home/Home";
 import { Login } from "../components/login/Login";
 import Navbar from "../components/navbar/Navbar";
@@ -43,13 +43,18 @@ export const AppRouter = () => {
           }
         />
 
-        <Route path="/register"  element={isLogged ? <Navigate to={"/"} replace={true} /> : <RegisterUser />} />
+        <Route
+          path="/register"
+          element={
+            isLogged ? <Navigate to={"/"} replace={true} /> : <RegisterUser />
+          }
+        />
 
         <Route
           path="/cart"
           element={
             <ProtectedRoute isLogged={isLogged} nav={"/login"}>
-              <Cart />
+              <CartView />
             </ProtectedRoute>
           }
         />
