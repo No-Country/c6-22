@@ -10,6 +10,10 @@
   padding: 3%;
   border: 1px solid rgba(0, 0, 0, 0.201);
 }
+
+.container h4 {
+  text-align: center;
+}
 .box_1 {
   width: 60%;
 }
