@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import { Cart } from "../components/cart/Cart";
+import { CartView } from "../components/cart/CartView";
 import Home from "../components/home/Home";
 import { Login } from "../components/login/Login";
 import Navbar from "../components/navbar/Navbar";
@@ -9,6 +9,7 @@ import { ProductView } from "../components/product/ProductView";
 import { ProductsView } from "../components/products/ProductsView";
 import RegisterUser from "../components/register/RegisterUser";
 import { loginAction } from "../features/authSlice";
+import { getProducts } from "../features/cartSlice";
 import { ProtectedRoute } from "./ProtectedRoute";
 
 export const AppRouter = () => {
@@ -25,6 +26,7 @@ export const AppRouter = () => {
       //LUEGO DISPATCH DEL LoginAction
 
       dispatch(loginAction({ email: "ale@ale.com", password: "123aleA" }));
+      dispatch(getProducts());
     }
   }, []);
 
@@ -43,13 +45,18 @@ export const AppRouter = () => {
           }
         />
 
-        <Route path="/register"  element={isLogged ? <Navigate to={"/"} replace={true} /> : <RegisterUser />} />
+        <Route
+          path="/register"
+          element={
+            isLogged ? <Navigate to={"/"} replace={true} /> : <RegisterUser />
+          }
+        />
 
         <Route
           path="/cart"
           element={
             <ProtectedRoute isLogged={isLogged} nav={"/login"}>
-              <Cart />
+              <CartView />
             </ProtectedRoute>
           }
         />
