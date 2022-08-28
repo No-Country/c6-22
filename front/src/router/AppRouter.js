@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { CartView } from "../components/cart/CartView";
 import Contact from "../components/contact/Contact";
+import Footer from "../components/footer/Footer";
 import Home from "../components/home/Home";
 import { Login } from "../components/login/Login";
 import Navbar from "../components/navbar/Navbar";
@@ -63,6 +64,7 @@ export const AppRouter = () => {
         />
         <Route path="/contact" element={<Contact />} />
       </Routes>
+      <Footer />
     </BrowserRouter>
   );
 };
