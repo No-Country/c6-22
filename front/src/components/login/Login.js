@@ -83,6 +83,7 @@ export const Login = () => {
             name="password"
             value={password}
             placeholder="Contraseña"
+            minLength={6}
           />
         </div>
 

@@ -1,27 +1,30 @@
-[{
+[
+  {
     "id": 1,
     "title": "Laptops",
     "description": "description about Notebooks",
-    "url": "https://d598hd2wips7r.cloudfront.net/catalog/product/cache/314dec89b3219941707ad62ccc90e585/3/A/3A8W0LA-1_T1639150190.png"
+    "url": "https://d598hd2wips7r.cloudfront.net/catalog/product/cache/314dec89b3219941707ad62ccc90e585/3/A/3A8W0LA-1_T1639150190.png",
+    "price": 12334
   },
   {
     "id": 2,
     "title": "Smartphones",
     "description": "description about Mobiles",
-    "url": "https://www.pngmart.com/files/2/Smartphone-Transparent-Background.png"
+    "url": "https://www.pngmart.com/files/2/Smartphone-Transparent-Background.png",
+    "price": 34334
   },
   {
     "id": 3,
     "title": "Tablets",
     "description": "description about Tablets",
-    "url": "https://www.lenovo.com/medias/?context=bWFzdGVyfHJvb3R8MTE2MzY4fGltYWdlL3BuZ3xoZDcvaDZmLzExMjc2NTI1MTQyMDQ2LnBuZ3w4OTM3YWE4NGFmODg3MzcxMmY3OWM5NThiODZhYTVjZmMxNGNiNDgzMGI2MWZhMDZmMTRmNmVhYzkxNjAyM2Ni"
+    "url": "https://www.lenovo.com/medias/?context=bWFzdGVyfHJvb3R8MTE2MzY4fGltYWdlL3BuZ3xoZDcvaDZmLzExMjc2NTI1MTQyMDQ2LnBuZ3w4OTM3YWE4NGFmODg3MzcxMmY3OWM5NThiODZhYTVjZmMxNGNiNDgzMGI2MWZhMDZmMTRmNmVhYzkxNjAyM2Ni",
+    "price": 54334
   },
   {
     "id": 4,
     "title": "Pc",
     "description": "description about Pc",
-    "url": "https://d598hd2wips7r.cloudfront.net/catalog/product/cache/b3b166914d87ce343d4dc5ec5117b502/1/4/140N5AA-1_T1611768178.png"
+    "url": "https://d598hd2wips7r.cloudfront.net/catalog/product/cache/b3b166914d87ce343d4dc5ec5117b502/1/4/140N5AA-1_T1611768178.png",
+    "price": 62334
   }
 ]
-  
-  
