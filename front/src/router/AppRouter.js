@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+
 import { CartView } from "../components/cart/CartView";
 import Contact from "../components/contact/Contact";
 import Home from "../components/home/Home";
