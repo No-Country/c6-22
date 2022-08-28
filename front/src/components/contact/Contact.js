@@ -88,6 +88,7 @@ const Contact = () => {
                     <button type="submit">SUBSCRIBE</button>
                 </form>
             </div>
+            
             <div className={social_media}>
                 <img src={facebook} alt='facebook'/>
                 <img src={instagram} alt='instagram'/>
