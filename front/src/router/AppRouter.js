@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { Cart } from "../components/cart/Cart";
-import Footer from "../components/footer/Footer";
+import Contact from "../components/contact/Contact";
 import Home from "../components/home/Home";
 import { Login } from "../components/login/Login";
 import Navbar from "../components/navbar/Navbar";
@@ -52,11 +52,10 @@ export const AppRouter = () => {
             <ProtectedRoute isLogged={isLogged} nav={"/login"}>
               <Cart />
             </ProtectedRoute>
-          }
-          
+          } 
         />
+        <Route path="/contact" element={<Contact />} />
       </Routes>
-      <Footer />
     </BrowserRouter>
   );
 };
