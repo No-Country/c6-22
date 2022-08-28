@@ -36,8 +36,8 @@ const Navbar = ({ isLogged }) => {
                 </Link>
               </li>
               <li className="nav-item">
-                <Link to={"/"} className={navbarPage}>
-                  SHOPS
+                <Link to={"/contact"} className={navbarPage}>
+                  CONTACT
                 </Link>
               </li>
               <li className="nav-item">
