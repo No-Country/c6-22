@@ -22,7 +22,7 @@ const Footer = () => {
     <div className={container_footer}>
         <div className={top_section}>
             <div className={brand}>
-                <h1>TecnoStore</h1>
+                <h1>TecnoStore </h1>
                 <h5>Tecnología a tu alcance</h5>
             </div>
             <div className={container_social}>
