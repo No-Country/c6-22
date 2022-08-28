@@ -46,8 +46,7 @@ const Contact = () => {
     </div>
     <div className={footer}>
         <div>
-            
-            <h4>CONTACT US</h4>
+            <h4>CONTACT US </h4>
             <div className={container_information}>
                 <div className={card_container}>
                     <div className={card_info}>
