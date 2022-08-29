@@ -43,8 +43,8 @@ const Contact = () => {
   };
   return (
     <>
+    <Title>Contacto</Title>
     <div className={containerWidth}>
-      <Title>Contacto</Title>
       <div className={container_footer}>
         <div className={map}>
           <iframe
