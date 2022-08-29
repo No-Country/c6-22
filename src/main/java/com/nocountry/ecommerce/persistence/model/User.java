@@ -2,6 +2,7 @@ package com.nocountry.ecommerce.persistence.model;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.Objects;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -18,17 +19,18 @@ import org.springframework.security.core.userdetails.UserDetails;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Builder
-@Data
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
 @Table(name = "users")
 public class User implements UserDetails {
-
-  private static final long serialVersionUID = -1454393281867987542L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -72,4 +74,22 @@ public class User implements UserDetails {
     public boolean isEnabled() {
       return !this.softDelete;
     }
+
+    @Override
+    public int hashCode() {
+      return Objects.hash(userId, username);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+      if (this == obj)
+        return true;
+      if (!(obj instanceof User))
+        return false;
+      if (getClass() != obj.getClass())
+        return false;
+      User user = (User) obj;
+      return userId.equals(user.getUserId()) && username.equals(user.getUsername());
+    }
+
 }

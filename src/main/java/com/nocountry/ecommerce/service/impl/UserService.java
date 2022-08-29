@@ -16,10 +16,10 @@ import com.nocountry.ecommerce.service.IUserService;
 public class UserService implements IUserService {
   
   @Autowired
-  UserRepository userRepository;
+  private UserRepository userRepository;
   
   @Autowired
-  RoleRepository roleRepository;
+  private RoleRepository roleRepository;
   
   @Autowired
   UserMapper userMapper;
