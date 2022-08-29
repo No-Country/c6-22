@@ -12,7 +12,6 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
-import org.springframework.util.StringUtils;
 import org.springframework.web.filter.OncePerRequestFilter;
 import com.nocountry.ecommerce.config.auth.common.JwtUtils;
 import com.nocountry.ecommerce.config.auth.common.ResponseUtils;
@@ -31,15 +30,8 @@ public class JwtRequestFilter extends OncePerRequestFilter {
       FilterChain filterChain) throws ServletException, IOException {
     
     String authorizationHeader = request.getHeader(HttpHeaders.AUTHORIZATION);
-    
-    if (!StringUtils.startsWithIgnoreCase(authorizationHeader, "Bearer ")) {
-      filterChain.doFilter(request, response);
-      return;
-    }
-    
-    authorizationHeader = authorizationHeader.substring(7);
-    
-    if (jwtUtils.isValidToken(authorizationHeader.substring(7))) {
+
+    if (jwtUtils.isValidToken(authorizationHeader)) {
       try {
         setAuthentication(authorizationHeader);
         filterChain.doFilter(request, response);

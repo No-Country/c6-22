@@ -13,17 +13,16 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.MalformedJwtException;
 import io.jsonwebtoken.SignatureAlgorithm;
-import io.jsonwebtoken.UnsupportedJwtException;
-import lombok.extern.log4j.Log4j2;
 
-@Log4j2
 @Service
 public class JwtUtils {
   
   private static final String SECRET_KEY = "SECRET";
   private static final String AUTHORITIES = "authorities";
+  private static final String BEARER_TOKEN = "Bearer %s";
+  private static final String BEARER_PART = "Bearer ";
+  private static final String EMPTY = "";
   
   public String getUsernameFromToken(String token) {
     return getClaimFromToken(token, Claims::getSubject);
@@ -37,21 +36,11 @@ public class JwtUtils {
         .setExpiration(Date.from(ZonedDateTime.now().plusMinutes(40).toInstant()))
         .signWith(SignatureAlgorithm.HS256, SECRET_KEY.getBytes(StandardCharsets.UTF_8))
         .compact();
-    return token;
+    return String.format(BEARER_TOKEN, token);
   }
   
   public boolean isValidToken(String token) {
-    try {
-      Jwts.parser()
-        .setSigningKey(SECRET_KEY)
-        .parseClaimsJws(token);
-      return true;
-    } catch (MalformedJwtException e) {
-      log.error("Invalid JWT token: ", e.getMessage());
-    } catch (UnsupportedJwtException e) {
-      log.error("JWT token is unnsuported: ", e.getMessage());
-    }
-    return false;
+    return token != null && token.startsWith(BEARER_PART);
   }
   
   public List<GrantedAuthority> getAuthorities(String token) {
@@ -67,8 +56,12 @@ public class JwtUtils {
   private Claims getAllClaimsFromToken(String token) {
     return Jwts.parser()
         .setSigningKey(SECRET_KEY.getBytes(StandardCharsets.UTF_8))
-        .parseClaimsJws(token)
+        .parseClaimsJws(getToken(token))
         .getBody();
+  }
+
+  private String getToken(String token) {
+    return token.replace(BEARER_PART, EMPTY);
   }
 
   private String getFirstAuthority(UserDetails userDetails) {
