@@ -16,11 +16,13 @@ const cartSlice = createSlice({
     },
     getProducts: (state) => {
       const products = localStorage.getItem("cart_tecnoStore");
-
-      return JSON.parse(products);
+      if (products != null) {
+        return JSON.parse(products);
+      }
+      return state;
     },
     clearProducts: () => {
-      localStorage.removeItem("cart_tecnoStore");
+      localStorage.setItem("cart_tecnoStore", JSON.stringify([]));
       return [];
     },
   },
@@ -28,4 +30,5 @@ const cartSlice = createSlice({
 
 export default cartSlice.reducer;
 
-export const { addProduct, deleteProduct, getProducts } = cartSlice.actions;
+export const { addProduct, deleteProduct, getProducts, clearProducts } =
+  cartSlice.actions;

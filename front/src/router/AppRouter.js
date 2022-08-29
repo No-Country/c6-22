@@ -1,13 +1,17 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+
 import { CartView } from "../components/cart/CartView";
+import Contact from "../components/contact/Contact";
+import Footer from "../components/footer/Footer";
 import Home from "../components/home/Home";
 import { Login } from "../components/login/Login";
 import Navbar from "../components/navbar/Navbar";
 import { ProductView } from "../components/product/ProductView";
 import { ProductsView } from "../components/products/ProductsView";
 import RegisterUser from "../components/register/RegisterUser";
+import { Title } from "../components/title/Title";
 import { loginAction } from "../features/authSlice";
 import { getProducts } from "../features/cartSlice";
 import { ProtectedRoute } from "./ProtectedRoute";
@@ -60,7 +64,9 @@ export const AppRouter = () => {
             </ProtectedRoute>
           }
         />
+        <Route path="/contact" element={<Contact />} />
       </Routes>
+      <Footer />
     </BrowserRouter>
   );
 };

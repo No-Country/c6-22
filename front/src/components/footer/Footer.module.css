@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Ramabhadra&display=swap');
+.container_footer{
+    height: 220px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.container_footer h5{
+    font-size: 1em;
+}
+.top_section{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    flex-wrap: wrap;
+}
+.brand{
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.brand h1{
+    font-family: 'Ramabhadra', sans-serif;
+    transition: .5s ease-in-out;
+}
+.brand h1:hover{
+    letter-spacing: 2px;
+}
+.bottom_section{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    text-align: center;
+    width: 100%;
+}
+.bottom_section h5{
+    font-size: 1em;
+}
+.agreement{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.agreement h5{
+    cursor: pointer;
+    margin: 5px;
+}
+.container_social{
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+.social_logos{
+    display: flex;
+    justify-content: space-around;
+}
+.social_logos img{
+    width: 25px;
+    height: 25px;
+    opacity: 0.7;
+    transition: .5s ease-in-out;
+}
+.social_logos img:hover{
+    transform: scale(1.2);
+    opacity: 0.9;
+}
+.container_contact{
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
