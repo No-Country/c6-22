@@ -14,7 +14,6 @@ import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.access.AccessDeniedHandler;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-import com.nocountry.ecommerce.config.auth.common.Role;
 import com.nocountry.ecommerce.config.auth.filter.CustomAccessDeniedHandler;
 import com.nocountry.ecommerce.config.auth.filter.CustomAuthenticationEntryPoint;
 import com.nocountry.ecommerce.config.auth.filter.JwtRequestFilter;
@@ -54,17 +53,19 @@ public class SecurityConfig {
     .authorizeRequests()
     .antMatchers(HttpMethod.POST, "/register")
     .permitAll()
+    .antMatchers(HttpMethod.POST, "/login")
+    .permitAll()
     .antMatchers(HttpMethod.GET, "/catalog/{id:[\\d+]}")
     .permitAll()
     .antMatchers(HttpMethod.GET, "/categories")
-    .hasAnyRole(Role.ADMIN.getFullRoleName())
+    .permitAll()
     .anyRequest()
-    .authenticated();
-
-    http.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class)
-      .exceptionHandling()
-      .accessDeniedHandler(accessDeniedHandler())
-      .authenticationEntryPoint(authenticationEntryPoint());
+    .authenticated()
+    .and()
+    .addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class)
+    .exceptionHandling()
+    .accessDeniedHandler(accessDeniedHandler())
+    .authenticationEntryPoint(authenticationEntryPoint());
 
     // For development environment only
     http.headers().frameOptions().disable();
