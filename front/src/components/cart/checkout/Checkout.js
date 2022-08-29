@@ -1,11 +1,15 @@
 import { useRef, useState } from "react";
 import swal from "sweetalert";
-import validator from "validator";
+
 import { useForm } from "../../../hooks/useForm";
 import { SelectElement } from "./SelectElement";
 import shippingIMG from "../../../assets/shipping.png";
+import { checkValues } from "./validate";
 
 import style from "./style.module.css";
+import { useDispatch } from "react-redux";
+import { clearProducts } from "../../../features/cartSlice";
+
 const {
   checkout,
   checkout__form_error,
@@ -15,6 +19,7 @@ const {
 } = style;
 
 export const Checkout = () => {
+  const dispatch = useDispatch();
   const [shipping, setShipping] = useState(false);
   const ref = useRef();
   const refButton = useRef();
@@ -29,43 +34,15 @@ export const Checkout = () => {
     security_code: "",
   });
 
-  const {
-    name,
-    credit_number,
-    expiration_years,
-    expiration_month,
-    security_code,
-  } = inputValue;
+  const { name, credit_number, security_code } = inputValue;
 
-  const checkValues = () => {
-    if (name.trim().length < 3) {
-      setError({ name: "Nombre muy corto" });
-      return false;
-    }
-    if (!validator.isCreditCard(credit_number)) {
-      setError({ credit_number: "Tarjeta inválida" });
-      return false;
-    }
-    if (expiration_years.length < 1) {
-      setError({ expiration_years: "Seleccione el Año" });
-      return false;
-    }
-    if (expiration_month.legnth < 1) {
-      setError({ expiration_month: "Seleccione el Mes" });
-      return false;
-    }
-    if (!validator.isNumeric(security_code)) {
-      setError({ security_code: "Código inválido" });
-      return false;
-    }
-
-    setError({});
-    return true;
-  };
+  function handleSetError(err) {
+    setError(err);
+  }
 
   function handleSubmit(e) {
     e.preventDefault();
-    if (checkValues()) {
+    if (checkValues(inputValue, handleSetError)) {
       //conectar al server/redux
       checkout_btn_ref.current.disabled = true;
 
@@ -77,6 +54,7 @@ export const Checkout = () => {
         });
         checkout_btn_ref.current.disabled = false;
         setShipping(true);
+        dispatch(clearProducts());
       }, 2000);
     }
   }
@@ -104,7 +82,7 @@ export const Checkout = () => {
       >
         Completar compra
       </button>
-      {shipping ? (
+      {!shipping ? (
         <>
           <h3>PAGAR</h3>
           <div>
