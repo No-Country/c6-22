@@ -18,6 +18,7 @@ export const ProductsView = () => {
 
   return (
     <>
+    <div style={{maxWidth: "1200px", margin:"auto"}}>
       <div className={styles.cardsProducts}>
         {/*  <h1>productsview</h1> */}
         {data.map((products) => {
@@ -32,6 +33,7 @@ export const ProductsView = () => {
             />
           );
         })}
+      </div>
       </div>
       {/* <Link to={`${pathname}/${el.id}`}>Detalles</Link> */}
     </>

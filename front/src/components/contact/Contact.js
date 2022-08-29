@@ -17,7 +17,8 @@ const {
     card_container,
     container_subscribe,
     container_email,
-    social_media
+    social_media,
+    containerWidth,
 } = styles
 
 const Contact = () => {
@@ -40,6 +41,7 @@ const Contact = () => {
     }
   return (
     <>
+    <div className={containerWidth}>
     <div className={container_footer}>
     <div className={map}>
      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d105073.23949906467!2d-58.43329845000001!3d-34.615823750000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcca3b4ef90cbd%3A0xa0b3812e88e88e87!2sBuenos%20Aires%2C%20CABA!5e0!3m2!1ses-419!2sar!4v1661563844111!5m2!1ses-419!2sar" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>   
@@ -95,6 +97,7 @@ const Contact = () => {
                 <img src={twitter} alt='twitter'/>
             </div>
         </div>  
+    </div>
     </div>
     </div>
     </>

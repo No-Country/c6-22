@@ -4,7 +4,10 @@ import { Link, useLocation } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { logout } from "../../features/authSlice";
 
-const { navbarBrand, navbarPage } = styles;
+const { navbarBrand, 
+  navbarPage, 
+  containerWidth 
+} = styles;
 
 const Navbar = ({ isLogged }) => {
   const dispatch = useDispatch();
@@ -12,6 +15,7 @@ const Navbar = ({ isLogged }) => {
 
   return (
     <>
+    <div className={containerWidth}>
       <nav className="navbar navbar-expand-lg bg-light">
         <div className="container-fluid">
           <Link to={"/"} className={navbarBrand}>
@@ -107,7 +111,9 @@ const Navbar = ({ isLogged }) => {
           </li>
         </ul>
       </div>
-      <div></div>
+      <div>
+      </div>
+      </div>
     </>
   );
 };

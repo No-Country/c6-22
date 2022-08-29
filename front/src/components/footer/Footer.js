@@ -14,11 +14,13 @@ const {
     contact,
     agreement,
     brand,
+    containerWidth
 } = style
 
 const Footer = () => {
   return (
     <>
+    <div className={containerWidth}>
     <div className={container_footer}>
         <div className={top_section}>
             <div className={brand}>
@@ -51,6 +53,7 @@ const Footer = () => {
             <h5>PRIVACY POLICY</h5>
             <h5>TERMS AND CONDITIONS</h5>
         </div>     
+    </div>
     </div>
     </>
   )
