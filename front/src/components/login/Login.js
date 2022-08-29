@@ -11,6 +11,7 @@ import { ReactComponent as ArrowBack } from "../../assets/arrow-left.svg";
 
 import { isValidate } from "./validate";
 import styles from "./styles.module.css";
+import { Title } from "../title/Title";
 
 const {
   container,
@@ -59,6 +60,7 @@ export const Login = () => {
 
   return (
     <div className={container}>
+      <Title>Login</Title>
       <form onSubmit={handleSubmit} className={form}>
         <button type="button" onClick={() => navigate(-1)} className={btn_back}>
           <ArrowBack />

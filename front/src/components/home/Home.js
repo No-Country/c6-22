@@ -2,6 +2,7 @@ import React from "react";
 import styles from "../home/Home.module.css";
 import data from "../json/data.json";
 import { Link } from "react-router-dom";
+import { Title } from "../title/Title";
 
 const { cardHome, card, cardImg, cardText, cardContainer, text, button } =
   styles;
@@ -9,6 +10,7 @@ const { cardHome, card, cardImg, cardText, cardContainer, text, button } =
 const Home = () => {
   return (
     <>
+      <Title>Inicio</Title>
       <div className={cardHome}>
         {data.map((product) => {
           const path = product.title.toLowerCase();

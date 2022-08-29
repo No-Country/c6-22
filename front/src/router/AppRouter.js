@@ -11,6 +11,7 @@ import Navbar from "../components/navbar/Navbar";
 import { ProductView } from "../components/product/ProductView";
 import { ProductsView } from "../components/products/ProductsView";
 import RegisterUser from "../components/register/RegisterUser";
+import { Title } from "../components/title/Title";
 import { loginAction } from "../features/authSlice";
 import { getProducts } from "../features/cartSlice";
 import { ProtectedRoute } from "./ProtectedRoute";
@@ -61,7 +62,7 @@ export const AppRouter = () => {
             <ProtectedRoute isLogged={isLogged} nav={"/login"}>
               <CartView />
             </ProtectedRoute>
-          } 
+          }
         />
         <Route path="/contact" element={<Contact />} />
       </Routes>

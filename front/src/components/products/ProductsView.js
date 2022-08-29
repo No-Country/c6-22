@@ -4,8 +4,8 @@ import Cards from "../cards/Cards";
 import data from "../json/data.json";
 
 import styles from "../cards/Cards.module.css";
+import { Title } from "../title/Title";
 
-const { cardProducts } = styles;
 export const ProductsView = () => {
   const categorieList = ["smartphones", "laptops", "tablets", "pc"];
   const { categorieId } = useParams();
@@ -19,8 +19,8 @@ export const ProductsView = () => {
   return (
     <>
     <div style={{maxWidth: "1200px", margin:"auto"}}>
+      <Title>{categorieId}</Title>
       <div className={styles.cardsProducts}>
-        {/*  <h1>productsview</h1> */}
         {data.map((products) => {
           return (
             <Cards
