@@ -12,11 +12,10 @@
   flex-wrap: wrap;
 }
 .productContent button {
-  background-color: #134e5e;
+  background-color: #434444;
   font-size: 1.1rem;
   color: white;
   border: none;
-  border-top: 2px solid #134e5e;
   border-bottom-left-radius: 7px;
   border-bottom-right-radius: 7px;
   width: 100%;
@@ -24,13 +23,9 @@
 }
 
 .productContent button:hover {
-  color: #134e5e;
-  background-color: white;
+  opacity: 0.9;
 }
-button:hover {
-  background-color: #134e5e;
-  color: white;
-}
+
 .productContent {
   text-align: center;
   width: 100%;
@@ -45,14 +40,12 @@ button:hover {
   border-radius: 10px;
   width: 250px !important;
   background-color: rgb(224, 224, 224);
-  transition: 0.7s ease-in-out;
-  border: 2px solid #134e5e;
+  transition: 0.3s;
+  border: 1px solid #0707071b;
 }
 .cardProducts:hover {
-  transform: translateY(-1px);
-  box-shadow: 10px 10px 19px -8px rgba(0, 0, 0, 0.75);
-  -webkit-box-shadow: 10px 10px 19px -8px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 10px 10px 19px -8px rgba(0, 0, 0, 0.75);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.438);
+  /*  border-color: #134e5e; */
 }
 
 .productImg {
@@ -73,13 +66,14 @@ button:hover {
   float: right;
   top: -240px;
   right: 10px;
-  background-color: white;
+  background-color: rgba(131, 132, 132, 0.46);
   border-radius: 50%;
+  border: none;
   width: 40px;
   height: 40px;
 }
 .cart svg {
-  color: black;
+  color: rgb(22, 22, 22);
   width: 25px;
   position: relative;
   top: 0;
@@ -87,8 +81,8 @@ button:hover {
   left: 0;
   right: 0;
   margin: auto;
-  transition: 0.5s ease-in;
+  transition: 0.3s;
 }
-.cart svg:hover {
-  transform: scale(1.2);
+.cart:hover svg {
+  transform: scale(1.1);
 }

@@ -2,6 +2,7 @@ import { useDispatch } from "react-redux";
 import styles from "../cards/Cards.module.css";
 import { Link } from "react-router-dom";
 import { addProduct } from "../../features/cartSlice";
+import { formatPrice } from "../../helpers/formatPrice";
 
 const { cardProducts, productImg, productInfo, cart, productContent } = styles;
 
@@ -14,15 +15,10 @@ const Cards = (props) => {
   return (
     <div className={cardProducts} style={{ width: "14rem" }}>
       <div className={productImg}>
-        <img src={props.img} alt="..." />
+        <img src={props.img} alt={props.name} />
       </div>
       <div className={productInfo}>
-        <button
-          type="button"
-          onClick={() => handleClick()}
-          className={cart}
-          href="#"
-        >
+        <button type="button" onClick={handleClick} className={cart}>
           <svg width="24" height="24" fill="none" viewBox="0 0 24 24">
             <path
               stroke="currentColor"
@@ -39,11 +35,11 @@ const Cards = (props) => {
           <h5>{props.title}</h5>
           <p>{props.description}</p>
           <br></br>
-          <h5>$ {props.price}</h5>
+          <h5> {formatPrice(props.price)}</h5>
           <br></br>
 
           <Link to={`${props.id}`}>
-            <button>SEE MORE</button>
+            <button>Ver</button>
           </Link>
         </div>
       </div>
