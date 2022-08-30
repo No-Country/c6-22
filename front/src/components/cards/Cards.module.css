@@ -3,6 +3,10 @@
   font-weight: 400;
   text-align: center;
 }
+.containerWidth{
+  max-width: 1200px;
+  margin: auto;
+}
 .productContent p {
   font-weight: 400;
 }
