@@ -6,6 +6,10 @@ body {
 html {
   scroll-behavior: smooth;
 }
+.containerWidth{
+  max-width: 1350px;
+  margin: auto;
+}
 
 .cardText h1 {
   font-size: 1.8em;

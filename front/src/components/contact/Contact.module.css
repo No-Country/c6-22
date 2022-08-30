@@ -1,5 +1,9 @@
+.containerWidth{
+    max-width: 1200px;
+    margin: auto;
+}
 .container_footer{
-    width: 80%;
+    width: 90%;
     height: 100%;
     margin: 20px auto;
     transform: translateY(-1px);
