@@ -57,17 +57,17 @@ const Contact = () => {
         <div className={footer}>
           <div>
 
-            <h4>CONTACT US </h4>
+            <h4>CONTACTANOS</h4>
             <div className={container_information}>
               <div className={card_container}>
                 <div className={card_info}>
                   <img src={location} alt="location" />
-                  <h6>ADDRESS</h6>
+                  <h6>DIRECCIÓN</h6>
                   <p>Av. Buenos Aires 123</p>
                 </div>
                 <div className={card_info}>
                   <img src={tel} alt="telephone" />
-                  <h6>TELEPHONE</h6>
+                  <h6>TELÉFONO</h6>
                   <p>+54 9 11425678</p>
                 </div>
               </div>
@@ -79,8 +79,8 @@ const Contact = () => {
                 </div>
                 <div className={card_info}>
                   <img src={watch} alt="watch" />
-                  <h6>WORKING HOUR</h6>
-                  <p>365 days a year</p>
+                  <h6>DISPONIBLES</h6>
+                  <p>Los 365 días al año</p>
                 </div>
               </div>
             </div>
@@ -88,15 +88,15 @@ const Contact = () => {
           <div className={container_subscribe}>
             <h4>NEWSLETTER</h4>
             <div className={container_email}>
-              <p>Subscribe to our newsletter for special offers</p>
+              <p>Subscribete a nuestro boletín y recibe especiales ofertas</p>
               <form onSubmit={handleSubscribe}>
                 <input
-                  placeholder="Email"
+                  placeholder="Correo"
                   type="email"
                   name="email"
                   autoFocus
                 ></input>
-                <button type="submit">SUBSCRIBE</button>
+                <button type="submit">SUBSCRIBETE</button>
               </form>
             </div>
 

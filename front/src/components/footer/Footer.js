@@ -14,7 +14,8 @@ const {
     contact,
     agreement,
     brand,
-    containerWidth
+    containerWidth,
+    bottom_title
 } = style
 
 const Footer = () => {
@@ -28,7 +29,7 @@ const Footer = () => {
                 <h5>Tecnología a tu alcance</h5>
             </div>
             <div className={container_social}>
-                <h5>FOLLOW US</h5>
+                <h5>SIGUENOS</h5>
                 <div className={social_logos}>
                     <img src={facebook} alt='facebook'/>
                     <img src={instagram} alt='instagram'/>
@@ -36,7 +37,7 @@ const Footer = () => {
                 </div> 
             </div>
             <div  className={container_contact}>
-                <h5>CALL US</h5>
+                <h5>LLAMANOS</h5>
                 <div className={contact}>
                    <p>+54 9 11425678</p> 
                 </div>
@@ -46,12 +47,12 @@ const Footer = () => {
     </div>
     <hr/>
     <div className={bottom_section}>
-        <div>
-            <h5>&reg;2022</h5> 
+        <div className={bottom_title}>
+            <h6>2022 NO COUNTRY</h6> 
         </div>
         <div className={agreement}>
-            <h5>PRIVACY POLICY</h5>
-            <h5>TERMS AND CONDITIONS</h5>
+            <h6>POLÍTICAS DE PRIVACIDAD</h6>
+            <h6>TÉRMINOS Y CONDICIONES</h6>
         </div>     
     </div>
     </div>
