@@ -2,13 +2,9 @@ import React, { useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import Cards from "../cards/Cards";
 import data from "../json/data.json";
-import style from "../footer/Footer.module.css";
 import styles from "../cards/Cards.module.css";
 import { Title } from "../title/Title";
 
-const {
-  containerWidth
-} = style
 export const ProductsView = () => {
   const categorieList = ["smartphones", "laptops", "tablets", "pc"];
   const { categorieId } = useParams();
@@ -22,7 +18,7 @@ export const ProductsView = () => {
   return (
     <>
     <Title>{categorieId}</Title>
-    <div style={containerWidth}>
+    <div className={styles.containerWidth}>
       <div className={styles.cardsProducts}>
         {data.map((products) => {
           return (

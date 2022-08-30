@@ -6,7 +6,8 @@ import { logout } from "../../features/authSlice";
 
 const { navbarBrand, 
   navbarPage, 
-  containerWidth 
+  containerWidth,
+  max_width
 } = styles;
 
 const Navbar = ({ isLogged }) => {
@@ -16,6 +17,7 @@ const Navbar = ({ isLogged }) => {
   return (
     <>
     <div className={containerWidth}>
+      <div className={max_width}>
       <nav className="navbar navbar-expand-lg bg-light">
         <div className="container-fluid">
           <Link to={"/"} className={navbarBrand}>
@@ -112,6 +114,7 @@ const Navbar = ({ isLogged }) => {
         </ul>
       </div>
       <div>
+      </div>
       </div>
       </div>
     </>
