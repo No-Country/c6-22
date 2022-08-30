@@ -5,6 +5,10 @@
     flex-direction: column;
     justify-content: space-around;
 }
+.containerWidth{
+    max-width: 1200px;
+    margin: auto;
+}
 .container_footer h5{
     font-size: 1em;
 }

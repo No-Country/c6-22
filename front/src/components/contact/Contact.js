@@ -10,16 +10,19 @@ import instagram from "../../assets/instagram.png";
 import twitter from "../../assets/twitter.png";
 import { Title } from "../title/Title";
 const {
-  container_footer,
-  map,
-  footer,
-  container_information,
-  card_info,
-  card_container,
-  container_subscribe,
-  container_email,
-  social_media,
-} = styles;
+
+    container_footer,
+    map,
+    footer,
+    container_information,
+    card_info,
+    card_container,
+    container_subscribe,
+    container_email,
+    social_media,
+    containerWidth,
+} = styles
+
 
 const Contact = () => {
   const handleSubscribe = (e) => {
@@ -40,7 +43,8 @@ const Contact = () => {
   };
   return (
     <>
-      <Title>Contacto</Title>
+    <Title>Contacto</Title>
+    <div className={containerWidth}>
       <div className={container_footer}>
         <div className={map}>
           <iframe
@@ -52,6 +56,7 @@ const Contact = () => {
         </div>
         <div className={footer}>
           <div>
+
             <h4>CONTACT US </h4>
             <div className={container_information}>
               <div className={card_container}>
@@ -100,9 +105,10 @@ const Contact = () => {
               <img src={instagram} alt="instagram" />
               <img src={twitter} alt="twitter" />
             </div>
-          </div>
-        </div>
-      </div>
+        </div>  
+    </div>
+    </div>
+    </div>
     </>
   );
 };
