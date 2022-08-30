@@ -66,6 +66,11 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/x
 			<artifactId>mapstruct</artifactId>
 			<version>${org.mapstruct.version}</version>
 		</dependency>
+	    <dependency>
+      		<artifactId>jjwt</artifactId>
+		      <groupId>io.jsonwebtoken</groupId>
+		      <version>0.9.1</version>
+    	</dependency>
 	</dependencies>
 
 	<build>
