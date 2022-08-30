@@ -1,1 +1,1 @@
-web: java -jar -Dspring.profiles.active=prod target/ecommerce-0.0.1-SNAPSHOT.jar
+web: java $JAVA_OPTS -jar -Dserver.port=$PORT -Dspring.profiles.active=prod target/*.jar
