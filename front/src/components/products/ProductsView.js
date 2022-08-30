@@ -5,9 +5,7 @@ import data from "../json/data.json";
 import styles from "../cards/Cards.module.css";
 import { Title } from "../title/Title";
 
-const {
-  containerWidth
-} = style
+
 export const ProductsView = () => {
   const categorieList = ["smartphones", "laptops", "tablets", "pc"];
   const { categorieId } = useParams();
