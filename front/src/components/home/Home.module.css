@@ -6,11 +6,11 @@ body {
 html {
   scroll-behavior: smooth;
 }
-.containerWidth{
+.containerWidth {
   width: 100%;
   background-color: rgb(248, 249, 250);
 }
-.max_width{
+.max_width {
   max-width: 1200px;
   margin: auto;
 }
@@ -41,10 +41,12 @@ html {
   color: black;
   text-decoration: none;
   line-height: 40px;
-  padding-right: 1rem;
+  margin-right: 12px;
+  border-bottom: 1px solid transparent;
 }
 .navbarPage:hover {
-  color: black;
+  color: rgb(225, 45, 45);
+  border-bottom: 1px solid;
 }
 .navbarBrand:hover {
   color: black;
@@ -61,6 +63,13 @@ html {
 }
 .icons li {
   list-style: none;
+}
+
+.button {
+  border: none;
+  padding: 5px 10px;
+  background: inherit;
+  text-decoration: underline;
 }
 
 /* ///////////////CARDS//////////////// */
@@ -148,7 +157,7 @@ html {
   }
 }
 
-@media screen and (max-width: 990px) {
+@media screen and (max-width: 767px) {
   .icons {
     width: 100%;
     display: flex;
