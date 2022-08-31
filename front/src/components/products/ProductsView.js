@@ -5,7 +5,6 @@ import data from "../json/data.json";
 import styles from "../cards/Cards.module.css";
 import { Title } from "../title/Title";
 
-
 export const ProductsView = () => {
   const categorieList = ["smartphones", "laptops", "tablets", "pc"];
   const { categorieId } = useParams();
@@ -18,22 +17,13 @@ export const ProductsView = () => {
 
   return (
     <>
-    <Title>{categorieId}</Title>
-    <div className={styles.containerWidth}>
-      <div className={styles.cardsProducts}>
-        {data.map((products) => {
-          return (
-            <Cards
-              key={products.id}
-              id={products.id}
-              title={products.title}
-              description={products.description}
-              img={products.url}
-              price={products.price}
-            />
-          );
-        })}
-      </div>
+      <Title>{categorieId}</Title>
+      <div className={styles.containerWidth}>
+        <div className={styles.cardsProducts}>
+          {data.map((products) => {
+            return <Cards key={products.id} {...products} />;
+          })}
+        </div>
       </div>
       {/* <Link to={`${pathname}/${el.id}`}>Detalles</Link> */}
     </>
