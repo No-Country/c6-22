@@ -11,8 +11,7 @@ import Navbar from "../components/navbar/Navbar";
 import { ProductView } from "../components/product/ProductView";
 import { ProductsView } from "../components/products/ProductsView";
 import RegisterUser from "../components/register/RegisterUser";
-import { Title } from "../components/title/Title";
-import { loginAction } from "../features/authSlice";
+import { login, loginAction } from "../features/authSlice";
 import { getProducts } from "../features/cartSlice";
 import { ProtectedRoute } from "./ProtectedRoute";
 
@@ -25,11 +24,10 @@ export const AppRouter = () => {
   useEffect(() => {
     const userStore = JSON.parse(localStorage.getItem("userTectStore"));
     if (userStore && user === null) {
-      const { token } = userStore;
       //PETICION A BASE DE DATOS PARA VERIFICAR TOKEN VALIDO
       //LUEGO DISPATCH DEL LoginAction
 
-      dispatch(loginAction({ email: "ale@ale.com", password: "123aleA" }));
+      dispatch(login({ email: userStore.email, password: userStore.password }));
       dispatch(getProducts());
     }
   }, []);

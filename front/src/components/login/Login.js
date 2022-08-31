@@ -35,8 +35,8 @@ export const Login = () => {
   const [error, setError] = useState(null);
 
   const { inputValue, handleChange, inputReset } = useForm({
-    email: "ale@ale.com",
-    password: "123aleA",
+    email: "admin@test.com",
+    password: "abcd1234",
   });
 
   const { email, password } = inputValue;
