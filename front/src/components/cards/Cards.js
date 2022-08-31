@@ -2,27 +2,23 @@ import { useDispatch } from "react-redux";
 import styles from "../cards/Cards.module.css";
 import { Link } from "react-router-dom";
 import { addProduct } from "../../features/cartSlice";
+import { formatPrice } from "../../helpers/formatPrice";
 
 const { cardProducts, productImg, productInfo, cart, productContent } = styles;
 
-const Cards = (props) => {
+const Cards = ({ name, url, title, price, description, id }) => {
   const dispatch = useDispatch();
   const handleClick = () => {
-    dispatch(addProduct(props));
+    dispatch(addProduct({ name, url, title, price, description, id }));
   };
 
   return (
     <div className={cardProducts} style={{ width: "14rem" }}>
       <div className={productImg}>
-        <img src={props.img} alt="..." />
+        <img src={url} alt={name} />
       </div>
       <div className={productInfo}>
-        <button
-          type="button"
-          onClick={() => handleClick()}
-          className={cart}
-          href="#"
-        >
+        <button type="button" onClick={handleClick} className={cart}>
           <svg width="24" height="24" fill="none" viewBox="0 0 24 24">
             <path
               stroke="currentColor"
@@ -36,14 +32,14 @@ const Cards = (props) => {
           </svg>
         </button>
         <div className={productContent}>
-          <h5>{props.title}</h5>
-          <p>{props.description}</p>
+          <h5>{title}</h5>
+          <p>{description}</p>
           <br></br>
-          <h5>$ {props.price}</h5>
+          <h5> {formatPrice(price)}</h5>
           <br></br>
 
-          <Link to={`${props.id}`}>
-            <button>SEE MORE</button>
+          <Link to={`${id}`}>
+            <button>Ver</button>
           </Link>
         </div>
       </div>
