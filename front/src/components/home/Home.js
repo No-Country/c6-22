@@ -29,7 +29,7 @@ const Home = () => {
                       <h1>{name}</h1>
                       <p>{description}</p>
                       <Link to={`/${path}`}>
-                        <button>ver</button>
+                        <button>Ver Productos</button>
                       </Link>
                     </div>
                   </div>
