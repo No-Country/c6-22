@@ -6,16 +6,16 @@ import { formatPrice } from "../../helpers/formatPrice";
 
 const { cardProducts, productImg, productInfo, cart, productContent } = styles;
 
-const Cards = (props) => {
+const Cards = ({ name, url, title, price, description, id }) => {
   const dispatch = useDispatch();
   const handleClick = () => {
-    dispatch(addProduct(props));
+    dispatch(addProduct({ name, url, title, price, description, id }));
   };
 
   return (
     <div className={cardProducts} style={{ width: "14rem" }}>
       <div className={productImg}>
-        <img src={props.img} alt={props.name} />
+        <img src={url} alt={name} />
       </div>
       <div className={productInfo}>
         <button type="button" onClick={handleClick} className={cart}>
@@ -32,13 +32,13 @@ const Cards = (props) => {
           </svg>
         </button>
         <div className={productContent}>
-          <h5>{props.title}</h5>
-          <p>{props.description}</p>
+          <h5>{title}</h5>
+          <p>{description}</p>
           <br></br>
-          <h5> {formatPrice(props.price)}</h5>
+          <h5> {formatPrice(price)}</h5>
           <br></br>
 
-          <Link to={`${props.id}`}>
+          <Link to={`${id}`}>
             <button>Ver</button>
           </Link>
         </div>

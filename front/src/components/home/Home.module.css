@@ -45,7 +45,6 @@ html {
   border-bottom: 1px solid transparent;
 }
 .navbarPage:hover {
-  color: rgb(225, 45, 45);
   border-bottom: 1px solid;
 }
 .navbarBrand:hover {
@@ -70,6 +69,9 @@ html {
   padding: 5px 10px;
   background: inherit;
   text-decoration: underline;
+}
+.button:hover {
+  text-decoration-color: red;
 }
 
 /* ///////////////CARDS//////////////// */

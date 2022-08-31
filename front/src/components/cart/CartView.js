@@ -28,11 +28,11 @@ export const CartView = () => {
             {" "}
             <div className={box_1}>
               <ul className={`${ul} list-group`}>
-                {cartStorage.map(({ title, price, img }, i) => {
+                {cartStorage.map(({ title, price, url }, i) => {
                   return (
                     <li className={`${li} list-group-item`} key={i}>
                       <div className={img_name}>
-                        <img src={img} alt={title} />
+                        <img src={url} alt={title} />
                         <h3>{title}</h3>
                       </div>
                       <div className={price_button}>
