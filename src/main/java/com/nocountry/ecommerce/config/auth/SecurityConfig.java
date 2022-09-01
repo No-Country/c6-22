@@ -59,6 +59,8 @@ public class SecurityConfig {
     .permitAll()
     .antMatchers(HttpMethod.GET, "/categories")
     .permitAll()
+    .antMatchers(HttpMethod.GET, "/categories/{category:[a-zA-Z]+}")
+    .permitAll()
     .anyRequest()
     .authenticated()
     .and()
