@@ -55,7 +55,7 @@ public class SecurityConfig {
     .permitAll()
     .antMatchers(HttpMethod.POST, "/login")
     .permitAll()
-    .antMatchers(HttpMethod.GET, "/catalog/{id:[\\d+]}")
+    .antMatchers(HttpMethod.GET, "/catalog/{id:[\\d]+}")
     .permitAll()
     .antMatchers(HttpMethod.GET, "/categories")
     .permitAll()
