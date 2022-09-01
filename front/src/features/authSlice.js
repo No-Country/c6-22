@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { baseURL } from "../axios/axiosInstance";
 
 const initialState = null;
 //user
@@ -10,6 +11,7 @@ const authSlice = createSlice({
     login: (state, action) => {
       const user = {
         user: action.payload.email,
+        token: action.payload.token,
       };
       return user;
     },
@@ -24,17 +26,14 @@ export default authSlice.reducer;
 export const { login, logout } = authSlice.actions;
 
 export const loginAction = (email, password) => async (dispatch) => {
-  //  "/register  => POST  -- Body  { email, password}"
-  /*  baseURL
-    .post("/user")
+  baseURL
+    .post("/login", { email, password })
     .then(({ data }) => {
       const user = { token: data.token, email: data.email };
-    localStorage.setItem("userTectStore", JSON.stringify(user.token));  
+      localStorage.setItem("userTectStore", JSON.stringify(user));
       dispatch(login(user));
     })
     .catch((error) => {
       console.log(error);
-    }); */
-  localStorage.setItem("userTectStore", JSON.stringify({ token: password }));
-  dispatch(login({ token: password, email }));
+    });
 };

@@ -11,4 +11,6 @@ import com.nocountry.ecommerce.persistence.model.Category;
 public interface CategoryRepository extends JpaRepository<Category, Long> {
     
     List<Category> findBySoftDeleteFalse();
+
+    Category findByNameIgnoreCase(String name);
 }

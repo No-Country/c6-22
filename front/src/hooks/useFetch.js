@@ -9,7 +9,6 @@ export const useFetch = (url = "") => {
   useEffect(() => {
     getService(url)
       .then((data) => {
-        console.log(data);
         setResult(data);
         setLoading(false);
       })

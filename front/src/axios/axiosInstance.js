@@ -5,5 +5,5 @@ export const baseURL = axios.create({
   //home  => /categories
   //products => /laptops
   //producto => catalog/id
-  baseURL: "https://62f6e898612c13062b564767.mockapi.io",
+  baseURL: "https://c6-22-ecommerce.herokuapp.com/",
 });
