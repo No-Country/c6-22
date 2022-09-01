@@ -1,5 +1,37 @@
-INSERT INTO public.categories (`category_id`, `description`, `image`, `name`, `soft_delete`) VALUES 
+INSERT INTO public.categories (category_id, description, image, name, soft_delete) VALUES 
 (1, 'Description of laptops', 'https://nocountry-c6-22.s3.amazonaws.com/laptop.webp', 'Laptops', false),
 (2, 'Description of smartphones', 'https://nocountry-c6-22.s3.amazonaws.com/smartphone.webp', 'Smartphones', false),
 (3, 'Description of tablets', 'https://nocountry-c6-22.s3.amazonaws.com/tablet.webp', 'Tablets', false),
 (4, 'Description of pc', 'https://nocountry-c6-22.s3.amazonaws.com/desktop.webp', 'PC', false);
+
+INSERT INTO public.products (product_id, brand, category_id, description, image, name, price, soft_delete, stock)
+VALUES
+(1, 'HP', 1, 'Intel Core i5 1135G7  8GB de RAM 512GB SSD, Intel Iris Xe Graphics G7 80EUs 1920x1080px Windows 10 Home', 'image', 'Pavilion x360 14', 189999, false, 50),
+(2, 'Dell', 1, 'AMD Ryzen 5 3450U  8GB de RAM 256GB SSD, AMD Radeon RX Vega 8 (Ryzen 2000/3000) 1366x768px Windows 11 Home', 'image', 'Inspiron 3515', 169000, false, 50),
+(3, 'HP', 1, 'Core I5 11va 8gb 512gb Fhd W10p', 'image', 'Elitebook 840 G8', 221999, false, 50),
+(4, 'Lenovo', 1, 'Intel Core i5 1035G1  8GB de RAM 512GB SSD, Intel UHD Graphics G1 1920x1080px Windows 10 Home', 'image', 'IdeaPad 14IIL05', 124159, false, 50),
+(5, 'Asus', 1, 'Intel Core i5 1135G7  8GB de RAM 256GB SSD, Intel Iris Xe Graphics G7 80EUs', 'image', 'X515EA', 147999, false, 50),
+(6, 'Motorola', 2, ' Moto G60s 128 GB  aqua 6 GB RAM', 'image', 'G60s', 79999, false, 50),
+(7, 'Motorola', 2, ' Moto G22 128 GB  cosmic black 4 GB RAM', 'image', 'G22', 46999, false, 50),
+(8, 'Motorola', 2, 'Motorola G51 5G 128 GB  dorado 4 GB RAM', 'image', 'G51', 56326, false, 50),
+(9, 'Samsung', 2, 'Samsung Galaxy A03 Core 32 GB  blue 2 GB RAM', 'image', 'Galaxy A03', 31499, false, 50),
+(10, 'Samsung', 2, 'Samsung Galaxy A32 128 GB  awesome black 4 GB RAM', 'image', 'Galaxy A32', 75999, false, 50),
+(11, 'Alcatel', 2, 'Alcatel 1 Plus 16 GB  negro 1 GB RAM', 'image', '1 Plus', 17815, false, 50),
+(12, 'Apple', 2, 'Apple iPhone 12 (64 GB) - Blanco', 'image', 'iPhone 12', 275999, false, 50),
+(13, 'Samsung', 3, 'Tablet  Samsung Galaxy Tab A7 Lite SM-T220 8.7" 32GB gris y 3GB de memoria RAM', 'image', 'Galaxy Tab A7 Lite', 46999, false, 50),
+(14, 'Lenovo', 3, 'Tablet  Lenovo Tab M10 TB-X505F 10.1" 16GB slate black y 2GB de memoria RAM', 'image', 'M10 TB-X505F', 28499, false, 50),
+(14, 'EXO', 3, 'Tablet Exo Wave 10.1 I101s 4g Lte Andorid 11 32gb Bt', 'image', 'Wave 10.1', 31660, false, 50),
+(15, 'Apple', 3, 'Apple iPad (9ª generación) 10.2" Wi-Fi 64GB - Color plata', 'image', 'iPad (9ª generación)', 90000, false, 50),
+(16, 'Apple', 4, 'iMac Mhk03ll/a  21,5 , Core I5, 8 Gb Ram, 256 Ssd Silver ', 'image', 'iMac', 369999, false, 50),
+(17, 'HP', 4, 'All In One Hp Ryzen 3 16gb 256gb Ssd + 1tb Hd 24 Full Hd W10', 'image', 'All In One', 151566, false, 50),
+(19, 'Lenovo', 4, 'Computadora All In One Lenovo Ideacentre 21.5 3020 4gb 1tb', 'image', 'Ideacentre 21.5', 79990, false, 50),
+(21, 'Bangho', 1, 'Description', 'image', 'name', 90000, true, 50),
+(22, 'Asus', 1, 'Description', 'image', 'name', 90000, true, 50),
+(23, 'Acer', 1, 'Description', 'image', 'name', 90000, true, 50),
+(24, 'Huawei', 2, 'Description', 'image', 'name', 90000, true, 50),
+(25, 'Huawei', 2, 'Description', 'image', 'name', 90000, true, 50),
+(26, 'Huawei', 2, 'Description', 'image', 'name', 90000, true, 50),
+(27, 'Lenovo', 3, 'Description', 'image', 'name', 90000, true, 50),
+(28, 'HP', 4, 'Description', 'image', 'name', 90000, true, 50),
+(29, 'Dell', 4, 'Description', 'image', 'name', 90000, true, 50),
+(30, 'HP', 4, 'Description', 'image', 'name', 90000, true, 50);
