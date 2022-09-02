@@ -13,6 +13,7 @@ const authSlice = createSlice({
         user: action.payload.email,
         token: action.payload.token,
       };
+      localStorage.setItem("userTectStore", JSON.stringify(user));
       return user;
     },
     logout: (state) => {
@@ -30,7 +31,6 @@ export const loginAction = (email, password) => async (dispatch) => {
     .post("/login", { email, password })
     .then(({ data }) => {
       const user = { token: data.token, email: data.email };
-      localStorage.setItem("userTectStore", JSON.stringify(user));
       dispatch(login(user));
     })
     .catch((error) => {
