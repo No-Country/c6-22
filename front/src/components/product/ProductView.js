@@ -10,6 +10,9 @@ import { useFetch } from "../../hooks/useFetch";
 import { ProductStockShipping } from "./product-stock-shipping/ProductStockShipping";
 
 import style from "./style.module.css";
+import { formatPrice } from "../../helpers/formatPrice";
+import { Title } from "../title/Title";
+import { DetailsSkeleton } from "../skeletonComponents/DetailsSekeleton";
 const {
   container,
   content,
@@ -26,48 +29,49 @@ const {
 
 export const ProductView = () => {
   const { productId } = useParams();
-  const { error, loading, results } = useFetch("/Product");
+  const { error, loading, results } = useFetch(`catalog/${productId}`);
 
-  const { name, details, img, img2, img3, price } = !loading
-    ? results[productId]
-    : {};
+  const { name, details, img, price } = !loading ? results : {};
 
   return (
-    <div className={container}>
-      {!loading ? (
-        <>
-          <div className={content}>
-            <div className={box1}>
-              <img
-                id="selected"
-                className={img_principal}
-                src={img}
-                alt="product"
-              />
-              <div id="slider" className={grid_images}>
+    <>
+      <Title>Detalle</Title>
+      <div className={container}>
+        {!loading ? (
+          <>
+            <div className={content}>
+              <div className={box1}>
+                <img
+                  id="selected"
+                  className={img_principal}
+                  src={img}
+                  alt="product"
+                />
+                {/* <div id="slider" className={grid_images}>
                 <Carousel images={[img, img2, img3, img, img2, img3]} />
+              </div> */}
+              </div>
+              <div className={box2}>
+                <h1>{name}</h1>
+                <div>
+                  <p className={price_color}>{formatPrice(price)}</p>
+                </div>
+                <div className={payments}>
+                  <img src={mastrecard} alt="mastercard" />
+                  <img src={visa} alt="visa" />
+                </div>
+                <ProductStockShipping />
+                <ButtonsAction results={results} />
               </div>
             </div>
-            <div className={box2}>
-              <h1>{name}</h1>
-              <div>
-                <p className={price_color}>${price}</p>
-              </div>
-              <div className={payments}>
-                <img src={mastrecard} alt="mastercard" />
-                <img src={visa} alt="visa" />
-              </div>
-              <ProductStockShipping />
-              <ButtonsAction />
+            <div className={details_content}>
+              <p>{details}</p>
             </div>
-          </div>
-          <div className={details_content}>
-            <p>{details}</p>
-          </div>
-        </>
-      ) : (
-        <p>loading</p>
-      )}
-    </div>
+          </>
+        ) : (
+          <DetailsSkeleton />
+        )}
+      </div>
+    </>
   );
 };

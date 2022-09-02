@@ -1,3 +1,4 @@
+/* PRODUCTS */
 .skeleton-products-container {
   min-height: 100%;
   width: 100%;
@@ -8,4 +9,21 @@
 
 .skeleton-products-container span {
   display: block;
+}
+
+/* DETAILS */
+.details__skeleton-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.details__skeleton-container span {
+  display: block;
+  width: 95%;
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 600px) {
+  .details__skeleton-container {
+    grid-template-columns: 1fr;
+  }
 }

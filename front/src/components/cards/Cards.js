@@ -3,6 +3,7 @@ import styles from "../cards/Cards.module.css";
 import { Link } from "react-router-dom";
 import { addProduct } from "../../features/cartSlice";
 import { formatPrice } from "../../helpers/formatPrice";
+import { alertAddCart } from "../alerts/alertAddCart";
 
 const { cardProducts, productImg, productInfo, cart } = styles;
 
@@ -15,6 +16,7 @@ const Cards = (product) => {
   const dispatch = useDispatch();
   const handleClick = () => {
     dispatch(addProduct({ name, img, price, details, id }));
+    alertAddCart();
   };
 
   return (
