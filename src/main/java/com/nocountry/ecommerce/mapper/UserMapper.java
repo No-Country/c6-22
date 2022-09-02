@@ -29,6 +29,7 @@ public abstract class UserMapper {
     return passwordEncoder.encode(password);
   }
 
+  @Mapping(target = "token", ignore = true)
   @Mapping(target = "id", source = "userId")
   public abstract UserRegisterResponse toUserRegisterResponse(User userEntity);
 
