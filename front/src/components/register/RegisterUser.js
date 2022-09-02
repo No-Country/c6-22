@@ -1,10 +1,12 @@
 import React from "react";
-import axios from "axios";
+import { useDispatch } from "react-redux";
 import styles from "../register/Register.module.css";
 import { Link, useNavigate } from "react-router-dom";
 import { ReactComponent as ArrowBack } from "../../assets/arrow-left.svg";
 import swal from "sweetalert";
 import { Title } from "../title/Title";
+import { baseURL } from "../../axios/axiosInstance";
+import { login } from "../../features/authSlice";
 
 const {
   email_icon,
@@ -16,6 +18,7 @@ const {
 } = styles;
 
 function RegisterUser() {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const handleRegister = (e) => {
@@ -37,18 +40,25 @@ function RegisterUser() {
       swal("Máximo de 8 caracteres", "", "error");
       return;
     }
-    if (email === "email@email.com" && password === "password")
-      axios
-        .post("https://62ffd8e89350a1e548e754cd.mockapi.io/register/users", {
-          email,
-          password,
-        })
-        .then((res) => {
-          {
-            swal("Usuario registrado correctamente", "", "success");
-          }
-          navigate("/");
-        });
+
+    baseURL
+      .post("/register", {
+        email,
+        password,
+      })
+
+      .then(({ data }) => {
+        const { token, username: email } = data;
+        dispatch(login({ email, token }));
+        swal("Usuario registrado correctamente", "", "success");
+
+        /*    navigate("/"); */
+      })
+      .catch((e) => {
+        if (e.request.status === 400) {
+          swal("Parece que el correo se encuentra en uso", "", "error");
+        }
+      });
   };
   return (
     <>
@@ -85,7 +95,7 @@ function RegisterUser() {
 
           <div className={link_log}>
             <small>¿Ya tienes cuenta? </small>
-            <Link to="/login">Log in</Link>
+            <Link to="/login">Ingresá</Link>
           </div>
           <div className="">
             <p></p>

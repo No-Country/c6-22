@@ -2,6 +2,7 @@ package com.nocountry.ecommerce.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import com.nocountry.ecommerce.config.auth.common.JwtUtils;
 import com.nocountry.ecommerce.config.auth.common.Role;
 import com.nocountry.ecommerce.exception.UserAlreadyExistsException;
 import com.nocountry.ecommerce.mapper.UserMapper;
@@ -22,7 +23,10 @@ public class UserService implements IUserService {
   private RoleRepository roleRepository;
   
   @Autowired
-  UserMapper userMapper;
+  private UserMapper userMapper;
+  
+  @Autowired
+  private JwtUtils jwtUtils;
 
   @Override
   public UserRegisterResponse create(UserRegisterRequest userRegisterReq) {
@@ -33,7 +37,10 @@ public class UserService implements IUserService {
     User userEntity = userMapper.toEntity(userRegisterReq);
     userEntity.setSoftDelete(false);
     userEntity.setRole(roleRepository.findByName(Role.CLIENT.getFullRoleName()));
-    return userMapper.toUserRegisterResponse(userRepository.save(userEntity));
+    UserRegisterResponse userResponse = userMapper.toUserRegisterResponse(
+        userRepository.save(userEntity));
+    userResponse.setToken(jwtUtils.generateToken(userEntity));
+    return userResponse;
   }
 
 }
