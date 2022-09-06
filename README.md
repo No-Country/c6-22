@@ -4,7 +4,7 @@
 </p>
 
 <h1>:heavy_check_mark: About the Project</h1>
-<h4>TecnoStore comes from the idea of that through the implementation of a web application, we seek to solve the problems of an E-commerce owing to the low sale of its products. Customers will be provided with a catalog with all the latest technological products to see. Since the application has a payment system, the customer will be able to make the purchase right there and get important discounts but first they must be logged in</h4>
+<h4>The idea of this project is to present a modern solution to a wide variety of problems that business owner's might face. This e-commerce project is oriented to retail tech companies that do not have an online presence, allowing them to manage product stock, sales for individual clients who are registered on the website, and to encourage customers loyalty through a newsletter subscription.</h4>
 
 <h1>:memo: General Description</h1>
 
