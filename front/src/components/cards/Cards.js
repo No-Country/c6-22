@@ -1,14 +1,16 @@
 import { useDispatch } from "react-redux";
-import styles from "../cards/Cards.module.css";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { addProduct } from "../../features/cartSlice";
 import { formatPrice } from "../../helpers/formatPrice";
 import { alertAddCart } from "../alerts/alertAddCart";
 
+import styles from "../cards/Cards.module.css";
 const { cardProducts, productImg, productInfo, cart } = styles;
 
 const Cards = (product) => {
   const { name, img, price, details, id } = product;
+
+  const location = useLocation();
 
   const newDetail =
     details.length < 50 ? details : details.slice(0, 50) + "...";
@@ -32,7 +34,9 @@ const Cards = (product) => {
         <br></br>
 
         <div>
-          <Link to={`${id}`}>Ver</Link>
+          <Link state={location.pathname.slice(1)} to={`${id}`}>
+            Ver
+          </Link>
         </div>
       </div>
       <button type="button" onClick={handleClick} className={cart}>

@@ -3,20 +3,22 @@ import { Link } from "react-router-dom";
 import { Title } from "../title/Title";
 import { useFetch } from "../../hooks/useFetch";
 import { HomeSkeleton } from "../skeletonComponents/HomeSkeleton";
+import data from "../../json/data.json";
 
 const { cardHome, card, cardImg, cardText, cardContainer, text } = styles;
 
 const Home = () => {
-  const { results, loading, error } = useFetch("/categories");
+  /*   const { results, loading, error } = useFetch("/categories"); */
+  const products = data;
 
   return (
     <>
       <Title>Inicio</Title>
       <div className={cardHome}>
-        {loading ? (
+        {
+          /* loading ? (
           <HomeSkeleton />
-        ) : (
-          results.categories?.map(({ description, id, image, name }) => {
+        ) : */ products.map(({ description, id, image, name }) => {
             const path = name.toLowerCase();
             return (
               <div key={id} className={cardContainer}>
@@ -28,16 +30,14 @@ const Home = () => {
                     <div className={text}>
                       <h1>{name}</h1>
                       <p>{description}</p>
-                      <Link to={`/${path}`}>
-                        <button>Ver Productos</button>
-                      </Link>
+                      <Link to={`/${path}`}>Ver Productos</Link>
                     </div>
                   </div>
                 </div>
               </div>
             );
           })
-        )}
+        }
       </div>
     </>
   );
