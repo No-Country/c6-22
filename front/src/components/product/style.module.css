@@ -3,7 +3,6 @@
   flex-direction: column;
   max-width: 1200px;
   min-width: 350px;
-  min-height: 100vh;
   margin: 0 auto;
   padding: 5%;
   border: 1px solid rgba(128, 128, 128, 0.207);
@@ -33,7 +32,7 @@
   width: 40%;
 }
 .img_principal {
-  width: 100%;
+  width: 80%;
   min-height: 400px;
   object-fit: contain;
 }
@@ -115,9 +114,6 @@
     padding-top: 0;
   }
 
-  .img_principal {
-    display: none;
-  }
   .details_content {
     width: 80%;
   }

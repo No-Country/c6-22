@@ -14,7 +14,6 @@ export const ProductsView = () => {
   const navigate = useNavigate();
 
   const { error, loading, results } = useFetch(`categories/${categorieId}`);
-  console.log(results);
 
   useEffect(() => {
     !verification && navigate("/");
