@@ -17,3 +17,8 @@ body {
   box-shadow: inset 5px 5px 5px var(--dark-shadow),
     inset -5px -5px 5px var(--ligth-shadow);
 }
+* {
+  margin: 0;
+  padding: 0%;
+  box-sizing: border-box;
+}

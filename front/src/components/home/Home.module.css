@@ -134,16 +134,8 @@ html {
   justify-content: center;
   flex-direction: column;
 }
-.text a button:hover {
-  animation: shake 0.4s;
-}
-.text button {
-  width: 60%;
-  border: 2px solid #134e5e;
-}
-.text button a:hover {
-  background-color: #134e5e;
-  color: white;
+.text a {
+  padding: 5px 10px;
 }
 
 /* ////////////////SECTION CATEGORY/////////// */

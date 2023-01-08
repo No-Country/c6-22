@@ -9,9 +9,9 @@
 }
 
 .productInfo h2 {
-  font-size: 1.4rem;
+  font-size: 1.1rem;
   margin-top: 8px;
-  font-weight: 400;
+  font-weight: 600;
   text-align: center;
 }
 .containerWidth {
@@ -20,6 +20,7 @@
 }
 .productInfo p {
   font-weight: 400;
+  font-size: 14px;
   padding: 0 5px;
   margin: 0;
 }
@@ -65,10 +66,12 @@
   height: 250px;
   display: flex;
   margin: auto;
+  align-items: center;
 }
 .productImg img {
   width: 100%;
   object-fit: contain;
+  max-height: 200px;
 }
 
 .cart {

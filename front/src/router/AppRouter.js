@@ -57,9 +57,9 @@ export const AppRouter = () => {
         <Route
           path="/cart"
           element={
-            <ProtectedRoute isLogged={isLogged} nav={"/login"}>
-              <CartView />
-            </ProtectedRoute>
+            /*   <ProtectedRoute isLogged={isLogged} nav={"/login"}> */
+            <CartView />
+            /*    </ProtectedRoute> */
           }
         />
         <Route path="/contact" element={<Contact />} />
